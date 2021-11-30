@@ -116,6 +116,6 @@ $ ls -R ../in-process/ ../processed/                       #смотрим со�
 $ a=$(ls |wc -l) && b=$(ls ../processed/ | wc -l) && if [[ $a -eq $b ]];then rm -r ./* ;else echo "in /processes=$b, in /new=$a";fi <br/>
 in /processes=34, in /new=100
 
-- 7 задание <br/>
-[user@centos_2 test]$ eval echo -E file{$a..$b} <br/>
+- 7 задание
+[user@centos_2 test]$ eval echo -E file{$a..$b}  <br/>
 file1 file2 file3

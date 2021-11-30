@@ -113,5 +113,5 @@ in-process  new  processed
 [user@centos_2 new]$ ls -laRht ../in-process/              смотрим содержимое папки in-process/ <br/>
 [user@centos_2 new]$ mv -t ../processed/ ../in-process/tread*/*    перемещаем всё из папок tread* в processed/ <br/> 
 [user@centos_2 new]$ ls -R ../in-process/ ../processed/             смотрим содержимое папок in-process/ и /processed/ <br/>
-[user@centos_2 new]$ a=$(ls |wc -l) && b=$(ls ../processed/ | wc -l) && if [[ $a -eq $b ]];then rm -r ./* ;else echo "in /processes=$b, in /new=$a";fi <br/>
+$ a=$(ls |wc -l) && b=$(ls ../processed/ | wc -l) && if [[ $a -eq $b ]];then rm -r ./* ;else echo "in /processes=$b, in /new=$a";fi <br/>
 in /processes=34, in /new=100

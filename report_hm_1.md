@@ -67,6 +67,9 @@ Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 >>>>>>>>>>>>>
 [user@centos_2 etc]$ cd $HOME
 [user@centos_2 ~]$
+>>>>>>>>>>>>>>>
+[user@centos_2 mnt]$ cd $OLDPWD
+[user@centos_2 ~]$
 
 - 6 задание
 

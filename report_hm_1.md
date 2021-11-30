@@ -12,7 +12,7 @@ prepation
 
 Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 
-exs
+exercices
 ----
 - 1 задание
 

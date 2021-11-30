@@ -35,12 +35,33 @@ Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 
 - 4 задание
 
-[user@centos_2 ~]$ touch file_name{1..3}.md
+[user@centos_2 ~ ]$ touch file_name{1..3}.md
 
 [user@centos_2 ~]$ ls -p | grep -v /
-> file_name1.md
-> file_name2.md
-> file_name3.md
+file_name1.md
+file_name2.md
+file_name3.md
+[user@centos_2 ~]$ f=file_name1.md && ext=.textdoc && mv -- "$f" "${f%.md}$ext"
+[user@centos_2 ~]$ ls -p | grep -v /
+file_name1.textdoc
+file_name2.md
+file_name3.md
+[user@centos_2 ~]$ f=file_name2.md && ext= && mv -- "$f" "${f%.md}$ext"
+[user@centos_2 ~]$ ls -p | grep -v /
+file_name1.textdoc
+file_name2
+file_name3.md
+[user@centos_2 ~]$ f=file_name3.md && ext=.md.latest && mv -- "$f" "${f%.md}$ext"
+[user@centos_2 ~]$ ls -p | grep -v /
+file_name1.textdoc
+file_name2
+file_name3.md.latest
+[user@centos_2 ~]$ f=file_name1.textdoc && ext=txt && mv -- "$f" "${f%.md}$ext"
+[user@centos_2 ~]$ ls -p | grep -v /
+file_name1.textdoctxt
+file_name2
+file_name3.md.latest
+[user@centos_2 ~]$ 
 
 - 5 задание
 
@@ -85,8 +106,12 @@ in-process  new  processed
 - ├── new
 - └── processed
 
-
-
-
-
-
+[user@centos_2 new]$ touch data:"$(date +"%M")":{1..100}    -создаем файлы
+[user@centos_2 new]$ cp *:*:{1..34} ../in-process/tread0    - копируем 34 файла в tread0/
+[user@centos_2 new]$ cp *:*:{1..33} ../in-process/tread1    - копируем 33 файла в tread1/
+[user@centos_2 new]$ cp *:*:{1..33} ../in-process/tread2    - копируем 33 файла в tread2/
+[user@centos_2 new]$ ls -laRht ../in-process/               - смотрим содержимое папки in-process/
+[user@centos_2 new]$ mv -t ../processed/ ../in-process/tread*/*     - перемещаем всё из папок tread* в processed/
+[user@centos_2 new]$ ls -R ../in-process/ ../processed/             - смотрим содержимое папок in-process/ и /processed/
+[user@centos_2 new]$ a=$(ls |wc -l) && b=$(ls ../processed/ | wc -l) && if [[ $a -eq $b ]];then rm -r ./* ;else echo "in /processes=$b, in /new=$a";fi 
+in /processes=34, in /new=100

@@ -106,7 +106,7 @@ in-process  new  processed
 - ├── new
 - └── processed
 
-[user@centos_2 new]$ touch data:"$(date +"%M")":{1..100}   создаем файлы
+[user@centos_2 new]$ touch data:"$(date +"%M")":{1..100}   создаем файлы \n
 [user@centos_2 new]$ cp *:*:{1..34} ../in-process/tread0   копируем 34 файла в tread0/
 [user@centos_2 new]$ cp *:*:{1..33} ../in-process/tread1   копируем 33 файла в tread1/
 [user@centos_2 new]$ cp *:*:{1..33} ../in-process/tread2   копируем 33 файла в tread2/

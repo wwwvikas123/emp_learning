@@ -1,4 +1,4 @@
-preparation
+prepation
 ----
 [user@localhost ~]$ hostnamectl set-hostname centos_1
 [user@centos_1 ~]$ userssh-keygen 
@@ -12,7 +12,8 @@ preparation
 
 Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 
-
+exs
+----
 - 1 задание
 
 [user@centos_2 ~]$ ls -Rl /usr/share/man/man*/*config*  

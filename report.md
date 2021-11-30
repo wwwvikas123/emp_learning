@@ -35,6 +35,7 @@ Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 - 4 задание
 
 [user@centos_2 ~]$ touch file_name{1..3}.md
+
 [user@centos_2 ~]$ ls -p | grep -v /
 > file_name1.md
 > file_name2.md
@@ -73,12 +74,12 @@ Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 in-process  new  processed
 [user@centos_2 test]$ tree .
 .
-├── in-process
-│   ├── tread0
-│   ├── tread1
-│   └── tread2
-├── new
-└── processed
+- ├── in-process
+- │   ├── tread0
+- │   ├── tread1
+- │   └── tread2
+- ├── new
+- └── processed
 
 
 

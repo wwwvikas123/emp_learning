@@ -12,6 +12,7 @@ preparation
 
 Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
 
+
 - 1 задание
 
 [user@centos_2 ~]$ ls -Rl /usr/share/man/man*/*config*  

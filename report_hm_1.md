@@ -16,7 +16,7 @@ exercices
 ----
 - 1 задание
 
-[user@centos_2 ~]$ ls -Rl /usr/share/man/man*/*config*  
+[user@centos_2 ~]$ ls -Rl /usr/share/man/man?/*config*  
 [user@centos_2 ~]$ ls -dl /usr/share/man/man1/*system* /usr/share/man/man7/*system*
 
 - 2 задание

@@ -1,16 +1,16 @@
 prepation
 ----
-[user@localhost ~]$ hostnamectl set-hostname centos_1
-[user@centos_1 ~]$ userssh-keygen 
-[user@centos_1 ~]$ ssh-copy-id user@192.168.18.139
-[user@centos_1 ~]$ su
-[root@centos_1 user]# chmod -G user wheel
-[root@centos_1 user]# usermod -g user wheel
-[root@centos_1 user]# usermod -G wheel user
-[root@centos_1 user]# init 6
-[user@centos_1 ~]$ ssh user@192.168.18.139
+[user@localhost ~]$ hostnamectl set-hostname centos_1 <br/>
+[user@centos_1 ~]$ userssh-keygen  <br/>
+[user@centos_1 ~]$ ssh-copy-id user@192.168.18.139 <br/>
+[user@centos_1 ~]$ su <br/>
+[root@centos_1 user]# chmod -G user wheel <br/>
+[root@centos_1 user]# usermod -g user wheel <br/>
+[root@centos_1 user]# usermod -G wheel user <br/>
+[root@centos_1 user]# init 6 <br/>
+[user@centos_1 ~]$ ssh user@192.168.18.139 <br/>
 
-Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
+Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138 <br/>
 
 exercices
 ----

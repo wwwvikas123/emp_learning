@@ -94,9 +94,9 @@ file_name3.md.latest <br/>
 
 - 6 задание
 
-[user@centos_2 test]$ mkdir -p {new,in-process/tread{0..2},processed}
-[user@centos_2 test]$ ls
-in-process  new  processed
+[user@centos_2 test]$ mkdir -p {new,in-process/tread{0..2},processed} <br/>
+[user@centos_2 test]$ ls <br/>
+in-process  new  processed <br/>
 [user@centos_2 test]$ tree .
 .
 - ├── in-process

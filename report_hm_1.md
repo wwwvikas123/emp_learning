@@ -38,31 +38,30 @@ exercices
 
 [user@centos_2 ~ ]$ touch file_name{1..3}.md
 
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.md
-file_name2.md
-file_name3.md
-[user@centos_2 ~]$ f=file_name1.md && ext=.textdoc && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2.md
-file_name3.md
-[user@centos_2 ~]$ f=file_name2.md && ext= && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2
-file_name3.md
-[user@centos_2 ~]$ f=file_name3.md && ext=.md.latest && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2
-file_name3.md.latest
-[user@centos_2 ~]$ f=file_name1.textdoc && ext=txt && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoctxt
-file_name2
-file_name3.md.latest
-[user@centos_2 ~]$ 
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.md <br/>
+file_name2.md <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name1.md && ext=.textdoc && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2.md <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name2.md && ext= && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2 <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name3.md && ext=.md.latest && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2 <br/>
+file_name3.md.latest <br/>
+[user@centos_2 ~]$ f=file_name1.textdoc && ext=txt && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoctxt <br/>
+file_name2 <br/>
+file_name3.md.latest <br/>
 
 - 5 задание
 

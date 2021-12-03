@@ -1,16 +1,16 @@
 prepation
 ----
-[user@localhost ~]$ hostnamectl set-hostname centos_1
-[user@centos_1 ~]$ userssh-keygen 
-[user@centos_1 ~]$ ssh-copy-id user@192.168.18.139
-[user@centos_1 ~]$ su
-[root@centos_1 user]# chmod -G user wheel
-[root@centos_1 user]# usermod -g user wheel
-[root@centos_1 user]# usermod -G wheel user
-[root@centos_1 user]# init 6
-[user@centos_1 ~]$ ssh user@192.168.18.139
+[user@localhost ~]$ hostnamectl set-hostname centos_1 <br/>
+[user@centos_1 ~]$ userssh-keygen  <br/>
+[user@centos_1 ~]$ ssh-copy-id user@192.168.18.139 <br/>
+[user@centos_1 ~]$ su <br/>
+[root@centos_1 user]# chmod -G user wheel <br/>
+[root@centos_1 user]# usermod -g user wheel <br/>
+[root@centos_1 user]# usermod -G wheel user <br/>
+[root@centos_1 user]# init 6 <br/>
+[user@centos_1 ~]$ ssh user@192.168.18.139 <br/>
 
-Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138
+Last login: Mon Nov 29 14:00:22 2021 from 192.168.18.138 <br/>
 
 exercices
 ----
@@ -38,31 +38,30 @@ exercices
 
 [user@centos_2 ~ ]$ touch file_name{1..3}.md
 
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.md
-file_name2.md
-file_name3.md
-[user@centos_2 ~]$ f=file_name1.md && ext=.textdoc && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2.md
-file_name3.md
-[user@centos_2 ~]$ f=file_name2.md && ext= && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2
-file_name3.md
-[user@centos_2 ~]$ f=file_name3.md && ext=.md.latest && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoc
-file_name2
-file_name3.md.latest
-[user@centos_2 ~]$ f=file_name1.textdoc && ext=txt && mv -- "$f" "${f%.md}$ext"
-[user@centos_2 ~]$ ls -p | grep -v /
-file_name1.textdoctxt
-file_name2
-file_name3.md.latest
-[user@centos_2 ~]$ 
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.md <br/>
+file_name2.md <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name1.md && ext=.textdoc && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2.md <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name2.md && ext= && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2 <br/>
+file_name3.md <br/>
+[user@centos_2 ~]$ f=file_name3.md && ext=.md.latest && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoc <br/>
+file_name2 <br/>
+file_name3.md.latest <br/>
+[user@centos_2 ~]$ f=file_name1.textdoc && ext=txt && mv -- "$f" "${f%.md}$ext" <br/>
+[user@centos_2 ~]$ ls -p | grep -v / <br/>
+file_name1.textdoctxt <br/>
+file_name2 <br/>
+file_name3.md.latest <br/>
 
 - 5 задание
 
@@ -95,9 +94,9 @@ file_name3.md.latest
 
 - 6 задание
 
-[user@centos_2 test]$ mkdir -p {new,in-process/tread{0..2},processed}
-[user@centos_2 test]$ ls
-in-process  new  processed
+[user@centos_2 test]$ mkdir -p {new,in-process/tread{0..2},processed} <br/>
+[user@centos_2 test]$ ls <br/>
+in-process  new  processed <br/>
 [user@centos_2 test]$ tree .
 .
 - ├── in-process

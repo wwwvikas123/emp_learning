@@ -34,6 +34,8 @@ $ cat dir.txt
 /home/vika/EPAM/script
 ```
 
+ $ cat script.sh
+ 
 ```
 #!/bin/bash
 cat dir.txt | xargs ls -al
@@ -56,7 +58,8 @@ cat dir.txt | xargs ls -alp && ls -p |grep / | echo directory $(wc -l) && ls -p 
 /etc/nginx/sites-available/
 /var
 ```
-
+ $ cat script.sh
+ 
 ```
 #!/bin/bash
 cat dir.txt | xargs -n1 -I DIR bash -c 'ls -alp "DIR" &&  ls -p "DIR" | grep / | echo directory $(wc -l) && ls -p "DIR" | grep -v / | echo files $(wc -l)'

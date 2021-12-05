@@ -35,6 +35,13 @@ cat dir.txt | xargs ls -al
 ```
 
 3*.
+
+$ cat dir.txt 
+/home/vika/EPAM/script
+/home/vika/EPAM
+/etc/nginx/sites-available/
+/var
+
 ```
 #!/bin/bash
 cat dir.txt | xargs ls -alp && ls -p |grep / | echo directory $(wc -l) && ls -p | grep -v / | echo files $(wc -l)

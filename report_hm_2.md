@@ -30,12 +30,26 @@ fi
 ## 3.
 $ echo $PWD > dir.txt
 
+$ cat dir.txt
+
+```
+/home/vika/EPAM/script
+```
+
 ```
 #!/bin/bash
 cat dir.txt | xargs ls -al
 ```
 
 ## 3*.
+
+ $ cat script.sh
+```
+#!/bin/bash
+cat dir.txt | xargs ls -alp && ls -p |grep / | echo directory $(wc -l) && ls -p | grep -v / | echo files $(wc -l)
+```
+
+## 3**.
 
  $ cat dir.txt
 ```
@@ -44,13 +58,7 @@ cat dir.txt | xargs ls -al
 /etc/nginx/sites-available/
 /var
 ```
- $ cat script.sh
-```
-#!/bin/bash
-cat dir.txt | xargs ls -alp && ls -p |grep / | echo directory $(wc -l) && ls -p | grep -v / | echo files $(wc -l)
-```
 
-## 3**.
 ```
 #!/bin/bash
 cat dir.txt | xargs -n1 -I DIR bash -c 'ls -alp "DIR" &&  ls -p "DIR" | grep / | echo directory $(wc -l) && ls -p "DIR" | grep -v / | echo files $(wc -l)'

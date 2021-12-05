@@ -1,4 +1,4 @@
-**! 1. **
+## 1.
 
 $ man awk 
 
@@ -6,7 +6,7 @@ $ man awk
 
 $ man awk | grep ENVIRONMENT VARIABLES -a 20 > env_path.txt
 
-* 2. *                                                                            
+## 2.                                                                           
 ```
 #!/bin/bash
 touch ../task2.txt 2>err.log || echo "ERROR."

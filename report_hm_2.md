@@ -14,8 +14,6 @@ touch ../task2.txt 2>err.log || echo "ERROR."
 
 ## 2*.
 
-$ sudo chmod a-w ../
-
 ```
 #!/bin/bash
 [ -w ../ ]

@@ -36,11 +36,13 @@ cat dir.txt | xargs ls -al
 
 3*.
 
-$ cat dir.txt 
+ `$ cat dir.txt` 
+```
 /home/vika/EPAM/script
 /home/vika/EPAM
 /etc/nginx/sites-available/
 /var
+```
 
 ```
 #!/bin/bash

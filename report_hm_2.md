@@ -1,6 +1,8 @@
 1. 
 $ man awk 
+
 /ENVIRONMENT
+
 $ man awk | grep ENVIRONMENT VARIABLES -a 20 > env_path.txt
 
 2.                                                                               
@@ -10,6 +12,7 @@ touch ../task2.txt 2>err.log || echo "ERROR."
 ```
 
 2*.
+
 $ sudo chmod a-w ./*
 
 ```

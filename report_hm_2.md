@@ -1,4 +1,4 @@
-*!1. *
+*!1*
 $ man awk 
 
 /ENVIRONMENT

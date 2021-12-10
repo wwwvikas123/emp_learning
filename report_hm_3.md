@@ -63,7 +63,7 @@
 **- - [19/Dec/2020:14:14:26 +0100] "GET /robots.txt HTTP/1.1" 200 304 "-" "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" "-"
 
 ```
-# or 
+******or 
 [user@centos_2 Documents]$ head -n 100 access.log | sed 's/^[[:digit:]]...........[[:digit:]]*/**/'
 
 ```

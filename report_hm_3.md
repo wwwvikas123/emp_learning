@@ -1,3 +1,5 @@
+***Awk
+
 ## 1.
 [user@centos_2 Documents]$  cat access.log.txt | awk '{print $12}'  |  sort -n | uniq -c | sort -rn | head
 ```
@@ -48,3 +50,10 @@
 26209910 bites for 145.253.118.26
 ....
 ``` 
+***sed
+
+## 1.
+
+## 2.
+[user@centos_2 Documents]$  head -n 100 access.log | sed 's/^[0-9]*.[0-9]*.[0-9]*.[0-9]*.[0-9]*/**/'
+

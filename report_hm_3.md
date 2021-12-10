@@ -53,7 +53,16 @@
 # SED.
 
 ## 1.
+[user@centos_2 Documents]$ tail access.log | sed 's/"[[:alpha:]]*\/[[:digit:]]*.[[:digit:]]/lynx/'
 
+```
+107.150.89.123 - - [10/Dec/2021:18:30:06 +0100] "GET /apache-log/access.log HTTP/1.1" 200 53141504 "http://www.almhuette-raith.at/" lynx (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1" "-"
+107.150.89.123 - - [10/Dec/2021:18:31:10 +0100] "GET /apache-log/access.log HTTP/1.1" 200 53174272 "http://www.almhuette-raith.at/" lynx (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1" "-"
+107.150.89.123 - - [10/Dec/2021:18:31:10 +0100] "GET /index.php?option=com_easyblog&view=dashboard&layout=write HTTP/1.1" 404 1397 "http://www.almhuette-raith.at/" lynx (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1" "-"
+51.178.216.7 - - [10/Dec/2021:18:32:46 +0100] "GET /apache-log/access.log HTTP/1.1" 200 2247000 "http://www.almhuette-raith.at/" lynx (X11; Fedora; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0" "-"
+45.130.60.19 - - [10/Dec/2021:18:32:46 +0100] "GET /index.php?option=com_easyblog&view=dashboard&layout=write HTTP/1.1" 404 1397 "http://www.almhuette-raith.at/" lynx (X11; Fedora; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0" "-"
+
+```
 ## 2.
 [user@centos_2 Documents]$  head -n 5 access.log | sed 's/^[0-9]*.[0-9]*.[0-9]*.[0-9]*.[0-9]*/**/'
 

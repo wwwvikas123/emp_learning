@@ -64,6 +64,7 @@
 
 ```
 ******or 
+
 [user@centos_2 Documents]$ head -n 100 access.log | sed 's/^[[:digit:]]...........[[:digit:]]*/**/'
 
 ```

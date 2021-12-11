@@ -64,7 +64,7 @@
 
 ```
 ## 2.
-[user@centos_2 Documents]$  head -n 5 access.log | sed 's/^[0-9]*.[0-9]*.[0-9]*.[0-9]*.[0-9]*/**/'
+[user@centos_2 Documents]$  sed -i 's/^[0-9]*.[0-9]*.[0-9]*.[0-9]*.[0-9]*/**/' access.log
 
 ```**- - [19/Dec/2020:13:57:26 +0100] "GET /index.php?option=com_phocagallery&view=category&id=1:almhuette-raith&Itemid=53 HTTP/1.1" 200 32653 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
 **- - [19/Dec/2020:14:08:06 +0100] "GET /apache-log/access.log HTTP/1.1" 200 233 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-"
@@ -74,7 +74,7 @@
 ```
 ## or 
 
-[user@centos_2 Documents]$ head -n 100 access.log | sed 's/^[[:digit:]]...........[[:digit:]]*/**/'
+[user@centos_2 Documents]$ sed -i's/^[[:digit:]]...........[[:digit:]]*/**/'  access.log
 
 ```
 

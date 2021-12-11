@@ -85,3 +85,6 @@
 
 ```
 
+## Extra (только небольшую часть удалось придумать)
+
+[user@centos_2 Documents]$ grep  "GET / HTTP" access.log.txt | awk '{print $1,$4,$7}'

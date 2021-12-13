@@ -13,15 +13,18 @@
 \# passwd eve
 
 
-
-\# chage -M 30 -W 25 bob
-\# chage -M 30 -W 25 alice
-\# chage -M 30 -W 25 eve
-
-\# chage -l alice 
+\# sudo nano /etc/login.defs
 
 ```
-Last password change					: Dec 13, 2021
+PASS_MAX_DAYS 30
+```
+
+\# chage -M 15 -W 10 bob
+
+chage -l bob
+
+```
+Last password change			: Dec 13, 2021
 Password expires					: Jan 12, 2022
 Password inactive					: never
 Account expires						: never
@@ -30,10 +33,19 @@ Maximum number of days between password change		: 30
 Number of days of warning before password expires	: 25
 ```
 
-or 
-\# sudo nano /etc/login.defs
+\# chage -E `date -d "90 days" +"%Y-%m-%d"` eve
+\# chage -E `date -d "90 days" +"%Y-%m-%d"` alice
 
-```
-PASS_MAX_DAYS 30
-```
+chage -l eve
+````
+Last password change					: Dec 13, 2021
+Password expires					: never
+Password inactive					: never
+Account expires						: Mar 13, 2022
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+````
+
+{не нашла где настроить политику паролей для все пользователей конкретной группы}
 

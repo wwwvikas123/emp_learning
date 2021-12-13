@@ -94,3 +94,16 @@ Changing password for eve.
 \#  passwd <user>
   
 \# chown -R :bakerstreet cases/
+  
+\##ачальное состояние
+  
+\# getfacl cases/
+
+```
+# file: cases/
+# owner: root
+# group: bakerstreet
+user::rwx
+group::r-x
+other::r-x
+```

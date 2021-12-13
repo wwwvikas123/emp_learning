@@ -19,7 +19,7 @@
 PASS_MAX_DAYS 30
 ```
 
-\# chage -M 15 -W 10 bob
+\# chage -M 15 -W 10 bob <br/>
 
 \# chage -l bob
 
@@ -34,9 +34,9 @@ Number of days of warning before password expires	: 25
 ```
 
 \# chage -E `date -d "90 days" +"%Y-%m-%d"` eve
-\# chage -E `date -d "90 days" +"%Y-%m-%d"` alice
+\# chage -E `date -d "90 days" +"%Y-%m-%d"` alice <br/>
 
-\# chage -l eve
+\# chage -l eve <br/>
 ````
 Last password change					: Dec 13, 2021
 Password expires					: never

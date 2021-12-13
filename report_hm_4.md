@@ -72,3 +72,8 @@ Changing password for eve.
 \# useradd -G students lesly
 \# mkdir  /home/students
 \# chown :students /home/students/
+
+
+ chmod -R ug+rwx /home/students/
+ chmod -R o-rwx /home/students/
+ chmod g+s  /home/students/

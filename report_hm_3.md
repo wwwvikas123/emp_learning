@@ -18,21 +18,24 @@
 ```
 
 ## 2. 
-[user@centos_2 Documents]$ cat access.log.txt | grep "216.244.66.230"  | cut -d[ -f2 | cut -d] -f1 | awk -F "/" '{print $2" " "reqs"}'  | sort -n | uniq -c
+[user@centos_2 Documents]$ cat access.log | grep "216.244.66.230" | cut -d[ -f2 | cut -d] -f1 | awk -F ":" '{print $1}'| awk -F "/" '{print "reqs "sort"", $2,$3}'|  uniq -c
 
 ```
-     34 Apr reqs
-    108 Aug reqs
-      6 Dec reqs
-     14 Feb reqs
-     43 Jan reqs
-     23 Jul reqs
-      3 Jun reqs
-      2 Mar reqs
-     27 May reqs
-    106 Nov reqs
-     23 Oct reqs
-      7 Sep reqs
+      1 reqs  Dec 2020
+     43 reqs  Jan 2021
+     14 reqs  Feb 2021
+      2 reqs  Mar 2021
+     34 reqs  Apr 2021
+     27 reqs  May 2021
+      3 reqs  Jun 2021
+     23 reqs  Jul 2021
+    108 reqs  Aug 2021
+      7 reqs  Sep 2021
+     23 reqs  Oct 2021
+    106 reqs  Nov 2021
+      5 reqs  Dec 2021
+
+
 ```      
 ## 3. 
 [user@centos_2 Documents]$ cat access.log.txt | awk '{a[$1]+=$10} END {for (i in a) print a [i] " " "bites for" " "  i}'

@@ -80,7 +80,15 @@ Changing password for eve.
 
 # Task3: ACL
 
-mkdir -p /share/casescd
-cd /share/cases/
-touch murders.txt  moriarty.txt
+\# mkdir -p /share/casescd
+\# cd /share/cases/
+\# touch murders.txt  moriarty.txt
+
+\# groupadd bakerstreet
+\# useradd -G bakerstreet holmes
+\# useradd -G bakerstreet watson
+\# groupadd scotlandyard
+\# useradd -G scotlandyard lestrade
+\# useradd -G scotlandyard gregson
+\# useradd -G scotlandyard jones
 

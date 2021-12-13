@@ -93,7 +93,7 @@ Changing password for eve.
 \# useradd -G scotlandyard jones
 \#  passwd <user>
   
-\# chown -R :bakerstreet cases/
+\# chgrp -R bakerstreet cases/
   
 \##ачальное состояние
   

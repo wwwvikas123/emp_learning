@@ -91,4 +91,4 @@ Changing password for eve.
 \# useradd -G scotlandyard lestrade
 \# useradd -G scotlandyard gregson
 \# useradd -G scotlandyard jones
-
+\#  passwd <user>

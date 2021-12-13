@@ -68,8 +68,8 @@
 45.130.60.19 - - [10/Dec/2021:18:32:46 +0100] "GET /index.php?option=com_easyblog&view=dashboard&layout=write HTTP/1.1" 404 1397 "http://www.almhuette-raith.at/" lynx (X11; Fedora; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0" "-"
 
 ```
-не удалось найти формулу, как всё почистить (всё так же пропускает браузеры с "-" в названии)
-    less access.log | sed 's/"\b[[:alpha:]]*\-[[:alpha:]]*\/[[:digit:]]*.*[[:digit:]].*[[:digit:]]*\b/"lynx/'  | grep python  
+не удалось найти формулу, как всё почистить (всё так же пропускает браузеры с "-" в названии) <br/>
+less access.log | sed 's/"\b[[:alpha:]]*\-[[:alpha:]]*\/[[:digit:]]*.*[[:digit:]].*[[:digit:]]*\b/"lynx/'  | grep python  <br/>
     - так работает, но пропускает всё остальное. Не знаю как совместить.
 
 

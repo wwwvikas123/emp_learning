@@ -66,4 +66,6 @@ Changing password for eve.
 
 
 # Task 2: Controlling access to files with Linux file system permissions
-
+\# useradd glen
+\# useradd antony
+\# useradd lesly

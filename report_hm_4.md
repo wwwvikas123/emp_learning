@@ -80,3 +80,7 @@ Changing password for eve.
 
 # Task3: ACL
 
+mkdir -p /share/casescd
+cd /share/cases/
+touch murders.txt  moriarty.txt
+

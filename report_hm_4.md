@@ -1,24 +1,24 @@
 ## Task 1: Users and groups
 
-# groupadd -g 4000 sales
+\# groupadd -g 4000 sales
 
 
-# useradd -s /bin/bash -G sales bob
-# useradd -s /bin/bash -G sales alice
-# useradd -s /bin/bash -G sales eve
+\# useradd -s /bin/bash -G sales bob
+\# useradd -s /bin/bash -G sales alice
+\# useradd -s /bin/bash -G sales eve
 
 
-# passwd bob
-# passwd alice 
-# passwd eve
+\# passwd bob
+\# passwd alice 
+\# passwd eve
 
 
 
-# chage -M 30 -W 25 bob
-# chage -M 30 -W 25 alice
-# chage -M 30 -W 25 eve
+\# chage -M 30 -W 25 bob
+\# chage -M 30 -W 25 alice
+\# chage -M 30 -W 25 eve
 
-# chage -l alice 
+\# chage -l alice 
 
 ```
 Last password change					: Dec 13, 2021

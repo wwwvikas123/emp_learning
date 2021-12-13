@@ -58,7 +58,7 @@
 # SED.
 
 ## 1.
-[user@centos_2 Documents]$ tail access.log | sed 's/"[[:alpha:]]*\/[[:digit:]]*.[[:digit:]]/lynx/'
+[user@centos_2 Documents]$ tail access.log | sed 's/"\b[[:alpha:]]*\/[[:digit:]]*.*[[:digit:]].*[[:digit:]]*\b/"lynx/'
 
 ```
 107.150.89.123 - - [10/Dec/2021:18:30:06 +0100] "GET /apache-log/access.log HTTP/1.1" 200 53141504 "http://www.almhuette-raith.at/" lynx (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1" "-"

@@ -30,3 +30,10 @@ Maximum number of days between password change		: 30
 Number of days of warning before password expires	: 25
 ```
 
+or 
+\# sudo nano /etc/login.defs
+
+```
+PASS_MAX_DAYS 30
+```
+

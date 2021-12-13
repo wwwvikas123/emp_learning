@@ -52,9 +52,9 @@ Number of days of warning before password expires	: 7
 
 ## Дополнительно:
 
-\# chage -d 0 alice
-\# chage -d 0 bob
-\# chage -d 0 eve
+\# chage -d 0 alice <br/>
+\# chage -d 0 bob <br/>
+\# chage -d 0 eve <br/>
 \# su eve
 
 ```
@@ -66,17 +66,17 @@ Changing password for eve.
 
 
 # Task 2: Controlling access to files with Linux file system permissions
-\# groupadd students
-\# useradd -G students glen
-\# useradd -G students antony
-\# useradd -G students lesly
-\# mkdir  /home/students
-\# chown :students /home/students/
+\# groupadd students               <br/>
+\# useradd -G students glen<br/>
+\# useradd -G students antony<br/>
+\# useradd -G students lesly<br/>
+\# mkdir  /home/students<br/>
+\# chown :students /home/students/<br/>
 
 
-\# chmod -R ug+rwx /home/students/
-\# chmod -R o-rwx /home/students/
-\# chmod g+s  /home/students/
+\# chmod -R ug+rwx /home/students/<br/>
+\# chmod -R o-rwx /home/students/ <br/>
+\# chmod g+s  /home/students/ <br/>
 
 # Task3: ACL
 

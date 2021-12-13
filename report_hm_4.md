@@ -33,7 +33,7 @@ Maximum number of days between password change		: 30
 Number of days of warning before password expires	: 25
 ```
 
-\# chage -E `date -d "90 days" +"%Y-%m-%d"` eve
+\# chage -E `date -d "90 days" +"%Y-%m-%d"` eve <br/>
 \# chage -E `date -d "90 days" +"%Y-%m-%d"` alice <br/>
 
 \# chage -l eve 

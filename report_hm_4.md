@@ -50,3 +50,18 @@ Number of days of warning before password expires	: 7
 
 {не нашла где настроить политику паролей для все пользователей конкретной группы}
 
+## Дополнительно:
+
+\# chage -d 0 alice
+\# chage -d 0 bob
+\# chage -d 0 eve
+\# su eve
+
+```
+Password: 
+You are required to change your password immediately (root enforced)
+Changing password for eve.
+(current) UNIX password: 
+```
+
+

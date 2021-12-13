@@ -77,3 +77,6 @@ Changing password for eve.
 \# chmod -R ug+rwx /home/students/
 \# chmod -R o-rwx /home/students/
 \# chmod g+s  /home/students/
+
+# Task3: ACL
+

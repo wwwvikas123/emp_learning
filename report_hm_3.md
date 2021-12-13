@@ -1,18 +1,20 @@
 # AWK.
 
 ## 1.
-[user@centos_2 Documents]$  cat access.log.txt | awk '{print $12}'  |  sort -n | uniq -c | sort -rn | head
+[user@centos_2 Documents]$  cat access.log | awk -F\" '{print $6}' | sort -n | uniq -c | sort -rn | head
+
 ```
-363959 "Mozilla/4.0
- 259926 "Mozilla/5.0
-   7564 "python-requests/2.25.1"
-   2720 "curl/7.68.0"
-   2360 "-"
-   1693 "AHC/2.1"
-   1250 "Apache-HttpClient/4.5.2
-   1148 "libwww-perl/6.05"
-    949 "python-requests/2.25.0"
-    851 "'Mozilla/5.0
+ 340874 Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)
+  42635 Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko
+  17036 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+  16086 Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)
+   9497 Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36 OPR/32.0.1948.45
+   7823 Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/28.0
+   7564 python-requests/2.25.1
+   4607 Mozilla/5.0 (X11; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0
+   4592 Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108               baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN
+   4209 Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)
+
 ```
 
 ## 2. 

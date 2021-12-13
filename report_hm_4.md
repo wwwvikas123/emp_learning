@@ -36,7 +36,8 @@ Number of days of warning before password expires	: 25
 \# chage -E `date -d "90 days" +"%Y-%m-%d"` eve
 \# chage -E `date -d "90 days" +"%Y-%m-%d"` alice <br/>
 
-\# chage -l eve <br/>
+\# chage -l eve 
+
 ````
 Last password change					: Dec 13, 2021
 Password expires					: never

@@ -50,7 +50,7 @@ Number of days of warning before password expires	: 7
 
 {не нашла где настроить политику паролей для все пользователей конкретной группы}
 
-# Дополнительно:
+## Дополнительно:
 
 \# chage -d 0 alice
 \# chage -d 0 bob
@@ -65,5 +65,5 @@ Changing password for eve.
 ```
 
 
-## Task 2: Controlling access to files with Linux file system permissions
+# Task 2: Controlling access to files with Linux file system permissions
 

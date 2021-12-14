@@ -107,3 +107,7 @@ user::rwx
 group::r-x
 other::r-x
 ```
+  
+chmod -R g+s cases/
+chmod -R o-rwx cases/
+chmod -R ug+wx cases/

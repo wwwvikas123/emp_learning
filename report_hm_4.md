@@ -100,14 +100,17 @@ Changing password for eve.
 \# getfacl cases/
 
 ```
-# file: cases/
-# owner: root
-# group: bakerstreet
+\#file: cases/
+\#owner: root
+\#group: bakerstreet
 user::rwx
 group::r-x
 other::r-x
 ```
   
-chmod -R g+s cases/
-chmod -R o-rwx cases/
-chmod -R ug+wx cases/
+\# chmod -R g+s cases/
+\# chmod -R o-rwx cases/
+\# chmod -R ug+wx cases/
+\# setfacl -d -m group:bakerstreet:rwx cases/  \#added sticky
+  
+  

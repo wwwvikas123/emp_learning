@@ -44,3 +44,19 @@ user       4424  0.0  0.0 112808   964 pts/3    R+   23:49   0:00 grep --color=a
 
 $ fg
 sleep 20000
+
+
+------------------
+
+$ kill -9 3206
+[user@localhost ~]$ ps -aux | grep sleep
+user       4641  0.0  0.0 112808   964 pts/3    S+   23:53   0:00 grep --color=auto sleep
+
+
+$ sleep 20000
+^Z
+[1]+  Stopped                 sleep 20000
+[user@localhost ~]$ jobs
+[1]+  Stopped                 sleep 20000
+[user@localhost ~]$ kill %1
+[1]+  Terminated              sleep 20000

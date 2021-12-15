@@ -108,9 +108,9 @@ group::r-x
 other::r-x
 ```
   
-\# chmod -R g+s cases/
-\# chmod -R o-rwx cases/
-\# chmod -R ug+wx cases/
-\# setfacl -d -m group:bakerstreet:rwx cases/  \#added sticky
-  
+\# chmod -R g+s cases/  <br/>
+\# chmod -R o-rwx cases/  <br/>
+\# chmod -R ug+wx cases/  <br/> 
+\# setfacl -R -d -m g:bakerstreet:rwx cases/  <br/>
+\# setfacl -R -d -m u:jones:r cases/  <br/>
   

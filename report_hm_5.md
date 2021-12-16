@@ -87,3 +87,17 @@ Description=a simple daemon which does does echo 2
 Type=oneshot
 ExecStart=/usr/bin/bash -c '/usr/bin/echo 2 >> /tmp/homework'
 ```
+---------------
+```
+[Unit]
+Description=a simple daemon which does does echo 2
+After=epam_first_demon.service
+Requires=epam_first_demon.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c '/usr/bin/echo 2 >> /tmp/homework'
+
+[Install]
+WantedBy=multi-user.target
+```

@@ -90,6 +90,20 @@ ExecStart=/usr/bin/bash -c '/usr/bin/echo 2 >> /tmp/homework'
 ---------------
 ```
 [Unit]
+Description=a simple daemon which does sleep 10 after a start and then does ech$
+Before=epam_second_demon.service
+
+[Service]
+ExecStart=/bin/sleep 10
+ExecStartPost=/usr/bin/bash -c '/usr/bin/echo 1 >> /tmp/homework'
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+```
+[Unit]
 Description=a simple daemon which does does echo 2
 After=epam_first_demon.service
 Requires=epam_first_demon.service

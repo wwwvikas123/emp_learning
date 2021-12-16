@@ -66,7 +66,7 @@ $ sleep 20000
 
 ```
 [Unit]
-Description=a simple daemon which does sleep 10 after a start and then does echo 1 <br/>
+Description=a simple daemon which does sleep 10 after a start and then does echo 1
 
 [Service]
 ExecStart=/bin/sleep 10

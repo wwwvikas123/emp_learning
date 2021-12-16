@@ -1,4 +1,4 @@
-## Processes
+# Processes
 
 $ while true; do sleep 1;done
 $ sleep 1000
@@ -62,4 +62,18 @@ $ sleep 20000
 [1]+  Terminated              sleep 20000
 
 
-## systemd
+# systemd
+
+```
+[Unit]
+Description=a simple daemon which does sleep 10 after a start and then does echo 1
+
+[Service]
+ExecStart=/bin/sleep 10
+ExecStartPost=/usr/bin/bash -c '/usr/bin/echo 1 > /tmp/homework'
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```

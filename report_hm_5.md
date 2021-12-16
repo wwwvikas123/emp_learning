@@ -77,3 +77,13 @@ RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target
 ```
+
+
+```
+[Unit]
+Description=a simple daemon which does does echo 2
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c '/usr/bin/echo 2 >> /tmp/homework'
+```

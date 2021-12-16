@@ -4,7 +4,7 @@ $ while true; do sleep 1;done <br/>
 $ sleep 1000 <br/>
 $ sleep 20000 <br/>
 
-[user@localhost ~]$ ps -aux | grep sleep
+[user@localhost ~]$ ps -aux | grep sleep <br/>
 user       2993  0.0  0.0 108052   356 pts/1    S+   23:26   0:00 sleep 1000 <br/>
 user       3042  0.0  0.0 108052   356 pts/2    S+   23:26   0:00 sleep 20000 <br/>
 user       3112  0.0  0.0 108052   356 pts/0    S+   23:26   0:00 sleep 1 <br/>

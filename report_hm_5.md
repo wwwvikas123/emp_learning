@@ -16,11 +16,11 @@ $kill -19 2993 <br/>
 
 $ sleep 20000 <br/>
 ^Z <br/>
-[1]+  Stopped                 sleep 20000 <br/>
+[1]+  Stopped                 sleep 20000  <br/>
 
 
-$ kill -s STOP 3206
-[user@localhost ~]$ ps -aux | grep sleep
+$ kill -s STOP 3206 <br/>
+[user@localhost ~]$ ps -aux | grep sleep <br/>
 user       2993  0.0  0.0 108052   356 pts/1    T    23:26   0:00 sleep 1000  <br/>
 user       3206  0.0  0.0 108052   356 pts/0    T    23:27   0:00 sleep 30000 <br/>
 user       3454  0.0  0.0 108052   356 pts/2    T    23:31   0:00 sleep 20000 <br/>

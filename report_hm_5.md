@@ -137,5 +137,4 @@ n/a                          n/a      Fri 2021-12-17 01:15:41 MSK  4min 39s ago 
 Sat 2021-12-18 00:00:00 MSK  22h left Fri 2021-12-17 00:00:01 MSK  1h 20min ago unbound-anchor.timer         unbound-anchor.service
 Sat 2021-12-18 01:14:02 MSK  23h left Fri 2021-12-17 01:14:02 MSK  6min ago     systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
 ```
-
-![alt text](image/Снимок экрана от 2021-12-17 01-27-08.png?raw=true)
+![plot](./image/Снимок экрана от 2021-12-17 01-27-08.png)

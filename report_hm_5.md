@@ -123,7 +123,7 @@ WantedBy=multi-user.target
 Description=Do epam_second_demon.service on 01.01.2019 at 00:00
 
 [Timer]
-OnCalendar=2022-01-01 00:00:00
+OnCalendar=2019-01-01 00:00:00
 Persistent=true
 
 [Install]
@@ -133,7 +133,7 @@ $ sudo systemctl list-timers  <br/>
 
 ```
 NEXT                         LEFT                LAST                         PASSED       UNIT                         ACTIVATES 
-Sat 2021-12-18 00:00:00 MSK  22h left            Fri 2021-12-17 00:00:01 MSK  1h 16min ago unbound-anchor.timer         unbound-anchor.service  
-Sat 2021-12-18 01:14:02 MSK  23h left            Fri 2021-12-17 01:14:02 MSK  2min 39s ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service 
-Sat 2022-01-01 00:00:00 MSK  2 weeks 0 days left n/a                          n/a          epam_second_demon.timer      epam_second_demon.service
+n/a                          n/a      Fri 2021-12-17 01:15:41 MSK  4min 39s ago epam_second_demon.timer      epam_second_demon.service
+Sat 2021-12-18 00:00:00 MSK  22h left Fri 2021-12-17 00:00:01 MSK  1h 20min ago unbound-anchor.timer         unbound-anchor.service
+Sat 2021-12-18 01:14:02 MSK  23h left Fri 2021-12-17 01:14:02 MSK  6min ago     systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
 ```

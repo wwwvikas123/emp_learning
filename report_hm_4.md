@@ -111,6 +111,6 @@ other::r-x
 \# chmod -R g+s cases/  <br/>
 \# chmod -R o-rwx cases/  <br/>
 \# chmod -R ug+wx cases/  <br/> 
-\# setfacl -R -d -m g:bakerstreet:rwx cases/  <br/>
+\# setfacl -R -d -m g:scotlandyard:rwx cases/  <br/>
 \# setfacl -R -d -m u:jones:r cases/  <br/>
   

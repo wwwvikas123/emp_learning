@@ -151,3 +151,46 @@ echo Hello > /opt/hello
 0 0 2 * * /home/user/tabs/script_one.sh
 @reboot sleep 60; /home/user/tabs/script_one.sh
 ```
+# lsof
+- 1
+$ sudo lsof | grep "in.txt"
+
+```
+lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
+      Output information may be incomplete.
+sleep     3565                root    0w      REG                8,3         0  101431902 /home/user/in.txt
+```
+
+$ sudo lsof | grep "out.txt"
+
+``
+lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
+      Output information may be incomplete.
+sleep     3565                root    1w      REG                8,3         0  100705868 /home/user/out.txt
+```
+
+- 2
+sudo lsof -c sleep
+
+$ sudo lsof -d0 -a -f | grep sleep
+
+```
+lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
+      Output information may be incomplete.
+sleep     4653           root    0w   REG                8,3        0 101431902 /home/user/in.txt
+sleep     5055           root    0r   CHR                1,3      0t0      7516 /dev/null
+```
+
+- 3
+sudo lsof -iTCP
+
+```
+COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+rpcbind  624    rpc    8u  IPv4  18691      0t0  TCP *:sunrpc (LISTEN)
+rpcbind  624    rpc   11u  IPv6  18694      0t0  TCP *:sunrpc (LISTEN)
+cupsd   1083   root   10u  IPv6  28678      0t0  TCP localhost:ipp (LISTEN)
+cupsd   1083   root   11u  IPv4  28679      0t0  TCP localhost:ipp (LISTEN)
+master  1406   root   13u  IPv4  27474      0t0  TCP localhost:smtp (LISTEN)
+master  1406   root   14u  IPv6  27475      0t0  TCP localhost:smtp (LISTEN)
+dnsmasq 1450 nobody    6u  IPv4  28438      0t0  TCP localhost.localdomain:domain (LISTEN)
+```

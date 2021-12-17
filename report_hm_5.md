@@ -152,22 +152,23 @@ echo Hello > /opt/hello
 @reboot sleep 60; /home/user/tabs/script_one.sh
 ```
 # lsof
+
 - 1
+
 $ sudo lsof | grep "in.txt"
 
 ```
-lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
-      Output information may be incomplete.
 sleep     3565                root    0w      REG                8,3         0  101431902 /home/user/in.txt
 ```
 
 $ sudo lsof | grep "out.txt"
 
-``
+```
 sleep     3565                root    1w      REG                8,3         0  100705868 /home/user/out.txt
 ```
 
 - 2
+
 sudo lsof -c sleep
 
 $ sudo lsof -d0 -a -f | grep sleep
@@ -178,6 +179,7 @@ sleep     5055           root    0r   CHR                1,3      0t0      7516 
 ```
 
 - 3
+
 sudo lsof -iTCP
 
 ```

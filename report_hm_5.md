@@ -145,7 +145,9 @@ This is screen [systemd](https://github.com/wwwvikas123/epm_learning/blob/chapte
 #!/bin/bash
 echo Hello > /opt/hello
 ```
-- tab
+- tabs
 
+```
 0 0 2 * * /home/user/tabs/script_one.sh
-
+@reboot sleep 60; /home/user/tabs/script_one.sh
+```

@@ -164,8 +164,6 @@ sleep     3565                root    0w      REG                8,3         0  
 $ sudo lsof | grep "out.txt"
 
 ``
-lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
-      Output information may be incomplete.
 sleep     3565                root    1w      REG                8,3         0  100705868 /home/user/out.txt
 ```
 
@@ -175,8 +173,6 @@ sudo lsof -c sleep
 $ sudo lsof -d0 -a -f | grep sleep
 
 ```
-lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
-      Output information may be incomplete.
 sleep     4653           root    0w   REG                8,3        0 101431902 /home/user/in.txt
 sleep     5055           root    0r   CHR                1,3      0t0      7516 /dev/null
 ```

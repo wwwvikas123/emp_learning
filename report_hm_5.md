@@ -140,6 +140,12 @@ Sat 2021-12-18 01:14:02 MSK  23h left Fri 2021-12-17 01:14:02 MSK  6min ago     
 This is screen [systemd](https://github.com/wwwvikas123/epm_learning/blob/chapter_5/images/screen%20_%20hw_5.png)
 
 # cron/anacron
+- script
+```
+#!/bin/bash
+echo Hello > /opt/hello
+```
+- tab
 
 0 0 2 * * /home/user/tabs/script_one.sh
 

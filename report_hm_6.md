@@ -1,5 +1,5 @@
 # Task 1.
-
+---------------------
 $ cat  ~/.ssh/config
 
 ```
@@ -8,9 +8,11 @@ Host remotehost
    User Viktoriia_Loseva
    IdentityFile /root/.ssh/hw-5
 ```
+
+---------------
 curl 172.31.45.237:80
 curl 172.31.45.237:80  #работает веб-сервер nginx/1.20.1
-
+----------------
 
 $ ssh -fNL 1089:172.31.45.237:80 remotehost  #ssh - tunel
 
@@ -29,3 +31,7 @@ ETag: "61bb003a-740"
 Accept-Ranges: bytes
 ```
 ![image](./images/welcome_page.png)
+
+# Task 2.
+
+1. 

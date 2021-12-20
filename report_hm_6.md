@@ -39,7 +39,8 @@ Accept-Ranges: bytes
 
 1. 
 $ tzselect
-2
-16
 
 ![image](./images/TZ.png)
+
+2.
+$ journalctl --identifier=systemd --since "50min ago" -o verbose _UID=0 _HOSTNAME=localhost.localdomain SYSLOG_FACILITY=3

@@ -38,3 +38,7 @@ Accept-Ranges: bytes
 # Task 2.
 
 1. 
+$ tzselect
+2
+16
+![image](./images/TZ.png)

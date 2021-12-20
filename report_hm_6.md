@@ -44,3 +44,10 @@ $ tzselect
 
 2.
 $ journalctl --identifier=systemd --since "50min ago" -o verbose _UID=0 _HOSTNAME=localhost.localdomain SYSLOG_FACILITY=3
+
+3.
+cat /etc/rsyslog.d/auth-errors.conf
+```
+# Save auth messages to auth-errors.log
+auth.alert;security.alert          /var/log/auth-errors.log
+```

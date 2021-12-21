@@ -153,6 +153,10 @@ echo Hello > /opt/hello
 ```
 # lsof
 
+$ sleep 10000 0>in.txt 1>out.txt  ### запуск
+
+![img_shell] (./images/sleep_ex_5.png)
+
 - 1
 
 $ sudo lsof | grep "in.txt"
@@ -169,7 +173,7 @@ sleep     3565                root    1w      REG                8,3         0  
 
 - 2
 
-sudo lsof -c sleep
+sudo lsof -c sleep   #### время sleep истекло, пришлось перезапустить команду, поэтому PID изменился
 
 $ sudo lsof -d0 -a -f | grep sleep
 

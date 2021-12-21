@@ -1,6 +1,6 @@
 # Processes
 
-$ while true; do sleep 1;done <br/>
+$ sleep 30000 <br/>
 $ sleep 1000 <br/>
 $ sleep 20000 <br/>
 

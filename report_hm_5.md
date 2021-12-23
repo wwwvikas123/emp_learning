@@ -155,7 +155,7 @@ echo Hello > /opt/hello
 
 $ sleep 10000 2>error.txt 1>out.txt  ### запуск
 
-![image](./images/sleep_ex_5.png)
+![image](./images/new_sleep_ex_5.png)
 
 - 1
 

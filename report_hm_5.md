@@ -153,33 +153,33 @@ echo Hello > /opt/hello
 ```
 # lsof
 
-$ sleep 10000 0>in.txt 1>out.txt  ### запуск
+$ sleep 10000 2>error.txt 1>out.txt  ### запуск
 
 ![image](./images/sleep_ex_5.png)
 
 - 1
 
-$ sudo lsof | grep "in.txt"
+$ sudo lsof | grep "error.txt"
 
 ```
-sleep     3565                root    0w      REG                8,3         0  101431902 /home/user/in.txt
+sleep     4408                user    2w      REG                8,3         0  100705868 /home/user/error.txt
 ```
 
 $ sudo lsof | grep "out.txt"
 
 ```
-sleep     3565                root    1w      REG                8,3         0  100705868 /home/user/out.txt
+sleep     4408                user    1w      REG                8,3         0  101431902 /home/user/out.txt
 ```
 
 - 2
 
 sudo lsof -c sleep   #### время sleep истекло, пришлось перезапустить команду, поэтому PID изменился
 
-$ sudo lsof -d0 -a -f | grep sleep
+$ sudo lsof -d2 -a -f | grep sleep
 
 ```
-sleep     4653           root    0w   REG                8,3        0 101431902 /home/user/in.txt
-sleep     5055           root    0r   CHR                1,3      0t0      7516 /dev/null
+sleep     4408           user    2w   REG                8,3        0 100705868 /home/user/error.txt
+sleep     4531           root    2u  unix 0xffff9200d9162200      0t0     21254 socket
 ```
 
 - 3

@@ -1,26 +1,25 @@
 ## Repositories and Packages
 
 - Use rpm for the following tasks:
-1. Download sysstat package.
+1. 
 wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el7.x86_64.rpm
 
-3. Get information from downloaded sysstat package file.
+2. 
 rpm -qip sysstat-10.1.5-19.el7.x86_64.rpm
- rpm -ql sysstat
+rpm -ql sysstat
  
-5. Install sysstat package and get information about files installed by this package.
+3.
 sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm
-​
-- Add NGINX repository (need to find repository config on https://www.nginx.com/) and complete the following tasks using yum:
-1. Check if NGINX repository enabled or not.
 
+
+- Add NGINX repository (need to find repository config on https://www.nginx.com/) and complete the following tasks using yum:
+1.
 yum repolist all nginx repo
 
-3. Install NGINX.
- sudo yum install nginx
+2. 
+sudo yum install nginx
  
-5. Check yum history and undo NGINX installation.
-
+3.
 yum history 
 
 ```
@@ -34,10 +33,10 @@ history list
 ```
 sudo yum history undo 3
 
-7. Disable NGINX repository.
- sudo yum-config-manager --enable nginx repo
+4. 
+sudo yum-config-manager --enable nginx repo
  
-9. Remove sysstat package installed in the first task.
+5.
 sudo yum remove sysstat.x86_64 
 
 11. Install EPEL repository and get information about it.

@@ -7,6 +7,7 @@ $ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el
 $ rpm -qip sysstat-10.1.5-19.el7.x86_64.rpm <br/>
 $ rpm -ql sysstat <br/>
  ![image](./images/wget_info.png) <br/>
+ 
 3. <br/>
 $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm <br/>
 
@@ -15,7 +16,9 @@ $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm <br/>
 
 1. <br/>
 $ yum repolist all nginx repo
+
  ![image](./images/nginx_repo.png) <br/>
+ 
 2. <br/>
 $ sudo yum install nginx
 
@@ -88,6 +91,7 @@ Dirs are mounted into different disk partitions. The special boot fs is located 
 4. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
 $ du -ch / 2>/dev/null
 $ df -h
+
  ![image](./images/du.png) <br/>
  
 df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их. <br/>

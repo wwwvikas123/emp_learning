@@ -47,7 +47,10 @@ $ sudo yum info epel-release.noarch
 
 7. 
 $ yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
+
+```
 13915
+```
 
 8.
 $  sudo yum install ncdu.x86_64

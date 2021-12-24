@@ -67,10 +67,10 @@ innodes/64  links/18
 ```
 I supose, that previous  command  doesn't count symlinks. ( Предполагаю, что не считаются symlink, которых 4 штуки. )  <br/>
 
-bin -> usr/bin
-lib -> usr/lib
-lib64 -> usr/lib64
-sbin -> usr/sbin 
+- bin -> usr/bin
+- lib -> usr/lib
+- lib64 -> usr/lib64
+- sbin -> usr/sbin 
 
 Number of hard-links for thees partitions is 1  (У них количество hard link равно 1.)
 

@@ -1,6 +1,5 @@
 ## Repositories and Packages
 
-- Use rpm for the following tasks:
 1. 
 $ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el7.x86_64.rpm
 
@@ -12,7 +11,7 @@ $ rpm -ql sysstat <br/>
 $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm <br/>
 
 
-- Add NGINX repository (need to find repository config on https://www.nginx.com/) and complete the following tasks using yum:
+-----------------
 
 1.
 $ yum repolist all nginx repo

@@ -51,7 +51,7 @@ $  sudo yum install ncdu.x86_64
 
 -----------------
 *Extra task:
-    Need to create an rpm package consists of a shell script and a text file. The script should output words count stored in file.
+    Need to create an rpm package consists of a shell script and a text file. The script should output words count stored in file. <br/>
   ./rpmbuild.zip ![link](https://github.com/wwwvikas123/epm_learning/raw/chapter_7/rpmbuild.zip)
 
 ## Work with files
@@ -72,10 +72,10 @@ Number of hard-links for thees partitions is 1  (У них количество 
 
 3. Check what inode numbers have "/" and "/boot" directory. Why? <br/>
 
-Dirs are mounted into different disk partitions. The special boot fs is located in /dev/sda1, and /boot is a root for it as well as / is a root for basic fs. Thats explains an equal inodes number.
+Dirs are mounted into different disk partitions. The special boot fs is located in /dev/sda1, and /boot is a root for it as well as / is a root for basic fs. Thats explains an equal inodes number.  <br/>
 
-(Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количество inodes с основной файловой системой.)
-```
+(Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количество inodes с основной файловой системой.)  <br/>
+``` 
 /dev/sda3           46G         5,8G   40G           13% /
 /dev/sda1          297M         213M   85M           72% /boot
 ```

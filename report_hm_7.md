@@ -15,7 +15,7 @@ $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm <br/>
 
 1. <br/>
 $ yum repolist all nginx repo
- ![image](./images/nginx_repo.png)
+ ![image](./images/nginx_repo.png) <br/>
 2. <br/>
 $ sudo yum install nginx
 

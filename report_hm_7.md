@@ -39,14 +39,20 @@ sudo yum-config-manager --enable nginx repo
 5.
 sudo yum remove sysstat.x86_64 
 
-11. Install EPEL repository and get information about it.
+6. 
+sudo yum info epel-release.noarch 
 
-13. Find how much packages provided exactly by EPEL repository.
-14. Install ncdu package from EPEL repo.
-​
+13. 
+yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
+13915
+
+15.
+ sudo yum install ncdu.x86_64
+ 
 *Extra task:
     Need to create an rpm package consists of a shell script and a text file. The script should output words count stored in file.
-​
+  ./rpmbuild.zip ![link](https://github.com/wwwvikas123/epm_learning/raw/chapter_7/rpmbuild.zip)
+
 ## Work with files
 ​
 1. Find all regular files below 100 bytes inside your home directory.

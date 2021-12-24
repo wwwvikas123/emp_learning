@@ -2,25 +2,25 @@
 
 - Use rpm for the following tasks:
 1. 
-wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el7.x86_64.rpm
+$ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el7.x86_64.rpm
 
 2. 
-rpm -qip sysstat-10.1.5-19.el7.x86_64.rpm
-rpm -ql sysstat
+$ rpm -qip sysstat-10.1.5-19.el7.x86_64.rpm
+$ rpm -ql sysstat
  
 3.
-sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm
+$ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm
 
 
 - Add NGINX repository (need to find repository config on https://www.nginx.com/) and complete the following tasks using yum:
 1.
-yum repolist all nginx repo
+$ yum repolist all nginx repo
 
 2. 
-sudo yum install nginx
+$ sudo yum install nginx
  
 3.
-yum history 
+$ yum history 
 
 ```
 Loaded plugins: fastestmirror, langpacks
@@ -31,23 +31,23 @@ ID     | Login user               | Date and time    | Action(s)      | Altered
      1 | System <unset>           | 2021-11-25 12:53 | Install        | 1407   
 history list
 ```
-sudo yum history undo 3
+$ sudo yum history undo 3
 
 4. 
-sudo yum-config-manager --enable nginx repo
+$ sudo yum-config-manager --enable nginx repo
  
 5.
-sudo yum remove sysstat.x86_64 
+$ sudo yum remove sysstat.x86_64 
 
 6. 
-sudo yum info epel-release.noarch 
+$ sudo yum info epel-release.noarch 
 
 13. 
-yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
+$ yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
 13915
 
 15.
- sudo yum install ncdu.x86_64
+$  sudo yum install ncdu.x86_64
  
 *Extra task:
     Need to create an rpm package consists of a shell script and a text file. The script should output words count stored in file.
@@ -56,7 +56,26 @@ yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
 ## Work with files
 ​
 1. Find all regular files below 100 bytes inside your home directory.
-2. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why?
-3. Check what inode numbers have "/" and "/boot" directory. Why?
-4. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
-5. Check disk space usage of /var/log directory using ncdu
+find . -type f -size 0b
+3. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why?
+$ stat --format="innodes"/"%i""  ""links"/"%h" /
+innodes/64  links/18
+Предполагаю, что не считаются symlink, которых 4 штуки. 
+bin -> usr/bin
+lib -> usr/lib
+lib64 -> usr/lib64
+sbin -> usr/sbin 
+У них количество hard link равно 1.
+
+5. Check what inode numbers have "/" and "/boot" directory. Why?
+Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количство inodes с основной файловой системой.
+```
+/dev/sda3           46G         5,8G   40G           13% /
+/dev/sda1          297M         213M   85M           72% /boot
+```
+7. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
+$ du -ch / 2>/dev/null
+$ df -h
+df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их.
+9. 
+$ ncdu  /var/log

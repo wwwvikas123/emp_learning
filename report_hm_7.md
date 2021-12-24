@@ -7,7 +7,7 @@ $ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/sysstat-10.1.5-19.el
 2. 
 $ rpm -qip sysstat-10.1.5-19.el7.x86_64.rpm
 $ rpm -ql sysstat
- 
+ ![image](./images/wget_info.png)
 3.
 $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm
 
@@ -15,7 +15,7 @@ $ sudo rpm -ivh sysstat-10.1.5-19.el7.x86_64.rpm
 - Add NGINX repository (need to find repository config on https://www.nginx.com/) and complete the following tasks using yum:
 1.
 $ yum repolist all nginx repo
-
+ ![image](./images/nginx_repo.png)
 2. 
 $ sudo yum install nginx
  
@@ -73,9 +73,11 @@ sbin -> usr/sbin
 /dev/sda3           46G         5,8G   40G           13% /
 /dev/sda1          297M         213M   85M           72% /boot
 ```
+ ![image](./images/links.png)
 4. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
 $ du -ch / 2>/dev/null
 $ df -h
+ ![image](./images/du.png)
 df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их.
 5. Check disk space usage of /var/log directory using ncdu
 $ ncdu  /var/log

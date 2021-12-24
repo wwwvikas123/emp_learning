@@ -81,6 +81,6 @@ $ du -ch / 2>/dev/null
 $ df -h
  ![image](./images/du.png) <br/>
  
-df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их.
-5. Check disk space usage of /var/log directory using ncdu
-$ ncdu  /var/log
+df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их. <br/>
+5. Check disk space usage of /var/log directory using ncdu <br/>
+$ ncdu  /var/log <br/>

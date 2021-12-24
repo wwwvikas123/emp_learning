@@ -57,7 +57,7 @@ $  sudo yum install ncdu.x86_64
 ​
 1. Find all regular files below 100 bytes inside your home directory.
 find . -type f -size 0b
-3. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why?
+2. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why?
 $ stat --format="innodes"/"%i""  ""links"/"%h" /
 innodes/64  links/18
 Предполагаю, что не считаются symlink, которых 4 штуки. 
@@ -67,15 +67,15 @@ lib64 -> usr/lib64
 sbin -> usr/sbin 
 У них количество hard link равно 1.
 
-5. Check what inode numbers have "/" and "/boot" directory. Why?
+3. Check what inode numbers have "/" and "/boot" directory. Why?
 Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количство inodes с основной файловой системой.
 ```
 /dev/sda3           46G         5,8G   40G           13% /
 /dev/sda1          297M         213M   85M           72% /boot
 ```
-7. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
+4. Check the root directory space usage by du command. Compare it with an information from df. If you find differences, try to find out why it happens.
 $ du -ch / 2>/dev/null
 $ df -h
 df показал меньше, потому что не показывает swap отделы. Или же какой-то процесс использует удаленные файлы, после которых остались inodes, а df не учитывает их.
-9. 
+5. Check disk space usage of /var/log directory using ncdu
 $ ncdu  /var/log

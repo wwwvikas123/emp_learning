@@ -48,6 +48,7 @@ $ yum --disablerepo="*" --enablerepo="epel" list available  | wc -l
 
 8.
 $  sudo yum install ncdu.x86_64
+
 -----------------
 *Extra task:
     Need to create an rpm package consists of a shell script and a text file. The script should output words count stored in file.
@@ -61,15 +62,19 @@ find . -type f -size 0b
 2. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why? <br/>
 $ stat --format="innodes"/"%i""  ""links"/"%h" /
 innodes/64  links/18
-Предполагаю, что не считаются symlink, которых 4 штуки. 
+I supose, that previous  command  doesn't count symlinks. ( Предполагаю, что не считаются symlink, которых 4 штуки. )
 bin -> usr/bin
 lib -> usr/lib
 lib64 -> usr/lib64
 sbin -> usr/sbin 
-У них количество hard link равно 1.
+
+Number of hard-links for thees partitions is 1  (У них количество hard link равно 1.)
 
 3. Check what inode numbers have "/" and "/boot" directory. Why? <br/>
-Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количство inodes с основной файловой системой.
+
+Dirs are mounted into different disk partitions. The special boot fs is located in /dev/sda1, and /boot is a root for it as well as / is a root for basic fs. Thats explains an equal inodes number.
+
+(Каталоги смонтированы в разные разделы диска (судя по выводу команды df -hl), а в /dev/sda1 , скорее, находится специальная файловая система для загрузки, в которой /boot, является коренем, что объясняет одинаковое количество inodes с основной файловой системой.)
 ```
 /dev/sda3           46G         5,8G   40G           13% /
 /dev/sda1          297M         213M   85M           72% /boot

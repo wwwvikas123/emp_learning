@@ -60,9 +60,13 @@ $  sudo yum install ncdu.x86_64
 find . -type f -size 0b
 
 2. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why? <br/>
-$ stat --format="innodes"/"%i""  ""links"/"%h" /
-innodes/64  links/18
-I supose, that previous  command  doesn't count symlinks. ( Предполагаю, что не считаются symlink, которых 4 штуки. )
+$ stat --format="innodes"/"%i""  ""links"/"%h" /  <br/>
+
+```
+innodes/64  links/18 
+```
+I supose, that previous  command  doesn't count symlinks. ( Предполагаю, что не считаются symlink, которых 4 штуки. )  <br/>
+
 bin -> usr/bin
 lib -> usr/lib
 lib64 -> usr/lib64

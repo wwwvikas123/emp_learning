@@ -7,7 +7,7 @@ sudo fdisk /dev/sdb -l  <br/>
 parted /dev/sdb  <br/>
 (parted) p  <br/>
 (parted) mklable gpt  <br/>
-(parted) mkpart primary 0 2048  <br/>
+(parted) mkpart primary 0 2048MB  <br/>
 (parted) q  <br/>
 sudo mkfs.ext4 /dev/sbd  <br/>
 

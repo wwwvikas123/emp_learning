@@ -178,12 +178,6 @@ Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
 $ sudo pvcreate /dev/sdb1  <br/>
 
 ```
-[user@localhost ~]$ pvs
-  WARNING: Running as a non-root user. Functionality may be unavailable.
-  /run/lvm/lvmetad.socket: access failed: Permission denied
-  WARNING: Failed to connect to lvmetad. Falling back to device scanning.
-  /run/lock/lvm/P_global:aux: open failed: Permission denied
-  Unable to obtain global lock.
 [user@localhost ~]$ sudo pvs
   PV         VG Fmt  Attr PSize  PFree 
   /dev/sdb1     lvm2 ---  <1.91g <1.91g

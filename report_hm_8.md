@@ -87,7 +87,7 @@ parted /dev/sdb
 (parted) q
 sudo mkfs.xfs /dev/sdb3
 
-![images] (./images/list_parted_1_3.png)
+![images](./images/list_parted_1_3.png)
 
 ## 1.4
 
@@ -98,7 +98,7 @@ sudo swapon /dev/sdb2
 
 ## 1.5
 
-![images] (./images/1_5_mount.png)
+![images](./images/1_5_mount.png)
 
 $ sudo blkid /dev/sdb3
 
@@ -120,7 +120,7 @@ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab
 
 ## 1.7 
 
-![images] (./images/result.png)
+![images](./images/result.png)
 
 # 2
 

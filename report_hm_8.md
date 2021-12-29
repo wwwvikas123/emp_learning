@@ -142,19 +142,6 @@ UUID=71f77eaa-f2e3-47ec-ae31-a52d785ae12f /backup                xfs     default
 
 ## 2.1
 
-```
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk label type: gpt
-Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
-
-
-#         Start          End    Size  Type            Name
- 1           34      4000000    1.9G  Linux filesyste primary
- 2      4000001      5000000  488.3M  Linux swap      primary
- 3      5000001      9000000    1.9G  Microsoft basic primary
-```
-
 $  sudo fdisk /dev/sdb   <br/>
 
 ```
@@ -171,6 +158,19 @@ Partition type (type L to list all types): L
 
 ...
 
+```
+
+```
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: gpt
+Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
+
+
+#         Start          End    Size  Type            Name
+ 1           34      4000000    1.9G  Linux LVM primary
+ 2      4000001      5000000  488.3M  Linux swap      primary
+ 3      5000001      9000000    1.9G  Microsoft basic primary
 ```
 
 ## 2.2

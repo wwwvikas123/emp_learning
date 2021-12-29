@@ -112,6 +112,10 @@ $ sudo blkid /dev/sdb3  <br/>
 /dev/sdb3: UUID="71f77eaa-f2e3-47ec-ae31-a52d785ae12f" TYPE="xfs" PARTLABEL="primary" PARTUUID="1bfff556-f273-4804-a7d2-6ac5d1a3bd03" 
 ```
 
+## 1.6
+
+$ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab  <br/>
+
 $ nano /etc/fstab  <br/>
 
 ```
@@ -129,10 +133,6 @@ UUID=5ab707c0-04c6-43f0-be8e-5fff18adaf1b swap                    swap    defaul
 UUID=71f77eaa-f2e3-47ec-ae31-a52d785ae12f /backup                xfs     defaults        0 0
 
 ```
-
-## 1.6
-
-$ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab  <br/>
 
 ## 1.7 
 

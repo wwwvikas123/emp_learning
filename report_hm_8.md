@@ -3,13 +3,13 @@ Attaching of a new vd
 ![images](./images/new_disk.png)
 
 ## 1.1
-sudo fdisk /dev/sdb -l
-parted /dev/sdb
-(parted) p
-(parted) mklable gpt
-(parted) mkpart primary 0 2048
-(parted) q
-sudo mkfs.ext4 /dev/sbd
+sudo fdisk /dev/sdb -l  <br/>
+parted /dev/sdb  <br/>
+(parted) p  <br/>
+(parted) mklable gpt  <br/>
+(parted) mkpart primary 0 2048  <br/>
+(parted) q  <br/>
+sudo mkfs.ext4 /dev/sbd  <br/>
 
 ```
 \# fdisk /dev/sdb1

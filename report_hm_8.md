@@ -6,10 +6,12 @@ preparing: Attaching of a new vd
 ## 1.1
 $ sudo fdisk /dev/sdb -l  <br/>
 $ parted /dev/sdb  <br/>
-(parted) p <br/>
-(parted) mklable gpt  <br/>
-(parted) mkpart primary 0 2048  <br/>
-(parted) q  <br/>
+
+   (parted) p <br/>
+   (parted) mklable gpt  <br/>
+   (parted) mkpart primary 0 2048  <br/>
+   (parted) q  <br/>
+   
 $ sudo mkfs.ext4 /dev/sbd1  <br/>
 
 ```
@@ -46,9 +48,11 @@ Disk identifier: 5FB21CC7-9405-4892-8A7A-A59024A83D50
 ## 1.2
 
 $ sudo parted /dev/sdb  <br/>
-(parted) p  <br/>
-(parted) mkpart primary 2048 2560MB  <br/>
-(parted) q  <br/>
+
+  (parted) p  <br/>
+  (parted) mkpart primary 2048 2560MB  <br/>
+  (parted) q  <br/>
+  
 $ sudo mkfs.ext4 /dev/sbd2  <br/>
 
 ...
@@ -82,9 +86,11 @@ Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
 ## 1.3
 
 $ parted /dev/sdb  <br/>
-(parted) p  <br/>
-(parted) mkpart primary 2560 4608MB  <br/>
-(parted) q  <br/>
+
+  (parted) p  <br/>
+  (parted) mkpart primary 2560 4608MB  <br/>
+  (parted) q  <br/>
+  
 $ sudo mkfs.xfs /dev/sdb3  <br/>
 
 ![images](./images/list_parted_1_3.png)

@@ -115,8 +115,19 @@ $ sudo blkid /dev/sdb3  <br/>
 $ nano /etc/fstab  <br/>
 
 ```
-$ sudo blkid /dev/sdb3
-/dev/sdb3: UUID="71f77eaa-f2e3-47ec-ae31-a52d785ae12f" TYPE="xfs" PARTLABEL="primary" PARTUUID="1bfff556-f273-4804-a7d2-6ac5d1a3bd03" 
+#
+# /etc/fstab
+# Created by anaconda on Thu Nov 25 04:53:22 2021
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=81f7e5fa-01b7-491e-9348-a9ffb548dd3e /                       xfs     defaults        0 0
+UUID=6c679711-5706-432b-96c1-39355e97ad10 /boot                   xfs     defaults        0 0
+UUID=5ab707c0-04c6-43f0-be8e-5fff18adaf1b swap                    swap    defaults        0 0
+/dev/sdb2 none swap sw 0 0
+UUID=71f77eaa-f2e3-47ec-ae31-a52d785ae12f /backup                xfs     defaults        0 0
+
 ```
 
 ## 1.6

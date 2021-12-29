@@ -168,7 +168,7 @@ Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
 
 
 #         Start          End    Size  Type            Name
- 1           34      4000000    1.9G  Linux LVM primary
+ 1           34      4000000    1.9G  Linux LVM       primary
  2      4000001      5000000  488.3M  Linux swap      primary
  3      5000001      9000000    1.9G  Microsoft basic primary
 ```

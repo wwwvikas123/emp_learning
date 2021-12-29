@@ -34,9 +34,9 @@ Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk label type: gpt
-Disk identifier: 5FB21CC7-9405-4892-8A7A-A59024A83D50
+Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
 
 
 #         Start          End    Size  Type            Name
- 1           34      3906250    1.9G  Linux filesyste primary
+ 1           34      4000000    1.9G  Linux filesyste primary
 ```

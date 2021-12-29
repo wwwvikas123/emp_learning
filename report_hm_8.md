@@ -124,3 +124,85 @@ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab
 
 # 2
 
+## 2.1
+
+```
+ector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: gpt
+Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
+
+
+#         Start          End    Size  Type            Name
+ 1           34      4000000    1.9G  Linux filesyste primary
+ 2      4000001      5000000  488.3M  Linux swap      primary
+ 3      5000001      9000000    1.9G  Microsoft basic primary
+[user@localhost ~]$  sudo fdisk /dev/sdb 
+WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): t
+Partition number (1-3, default 3): 1
+Partition type (type L to list all types): L
+
+...
+
+[user@localhost ~]$  sudo fdisk /dev/sdb 
+WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): t
+Partition number (1-3, default 3): 1
+Partition type (type L to list all types): L
+
+```
+
+## 2.2
+
+$ sudo pvcreate /dev/sdb1
+
+```
+[user@localhost ~]$ pvs
+  WARNING: Running as a non-root user. Functionality may be unavailable.
+  /run/lvm/lvmetad.socket: access failed: Permission denied
+  WARNING: Failed to connect to lvmetad. Falling back to device scanning.
+  /run/lock/lvm/P_global:aux: open failed: Permission denied
+  Unable to obtain global lock.
+[user@localhost ~]$ sudo pvs
+  PV         VG Fmt  Attr PSize  PFree 
+  /dev/sdb1     lvm2 ---  <1.91g <1.91g
+```
+
+## 2.3
+
+$ sudo vgcreate root_vg /dev/sdb1
+
+## 2.4
+
+$ sudo lvcreate -L1G root_vg
+
+## 2.5
+
+![images](./images/checking_2_5.png)
+
+## 2.6 
+
+```
+[user@localhost ~]$ sudo lvextend -l +100%FREE /dev/root_vg/lvol0
+  Size of logical volume root_vg/lvol0 changed from 1.00 GiB (256 extents) to <1.91 GiB (488 extents).
+  Logical volume root_vg/lvol0 successfully resized.
+[user@localhost ~]$ sudo lvs
+  LV    VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol0 root_vg -wi-a----- <1.91g      
+ ```
+ ## 2.7 
+ 
+ ![images](./images/after_2pth.png)

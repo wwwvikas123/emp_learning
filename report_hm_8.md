@@ -207,4 +207,4 @@ $ sudo lvcreate -L1G root_vg  <br/>
  ```
  ## 2.7 
  
- ![images](./images/after_2pth.png)
+ ![images](./images/result_lvs.png)

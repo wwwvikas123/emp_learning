@@ -1,19 +1,19 @@
 # 1
-Attaching of a new vd
+preparing: Attaching of a new vd
 
 ![images](./images/new_disk.png)
 
 ## 1.1
-sudo fdisk /dev/sdb -l
-parted /dev/sdb
-(parted) p
-(parted) mklable gpt
-(parted) mkpart primary 0 2048
-(parted) q
-sudo mkfs.ext4 /dev/sbd1
+$ sudo fdisk /dev/sdb -l  <br/>
+$ parted /dev/sdb  <br/>
+(parted) p <br/>
+(parted) mklable gpt  <br/>
+(parted) mkpart primary 0 2048  <br/>
+(parted) q  <br/>
+$ sudo mkfs.ext4 /dev/sbd1  <br/>
 
 ```
-\# fdisk /dev/sdb1
+$ fdisk /dev/sdb1
 [...]
 Command (m for help): t
 Partition number (1-3, default 3): 3
@@ -45,11 +45,11 @@ Disk identifier: 5FB21CC7-9405-4892-8A7A-A59024A83D50
 
 ## 1.2
 
-parted /dev/sdb
-(parted) p
-(parted) mkpart primary 2048 2560MB
-(parted) q
-sudo mkfs.ext4 /dev/sbd2
+$ sudo parted /dev/sdb  <br/>
+(parted) p  <br/>
+(parted) mkpart primary 2048 2560MB  <br/>
+(parted) q  <br/>
+$ sudo mkfs.ext4 /dev/sbd2  <br/>
 
 ...
 
@@ -81,42 +81,41 @@ Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
 
 ## 1.3
 
-parted /dev/sdb
-(parted) p
-(parted) mkpart primary 2560 4608MB
-(parted) q
-sudo mkfs.xfs /dev/sdb3
+$ parted /dev/sdb  <br/>
+(parted) p  <br/>
+(parted) mkpart primary 2560 4608MB  <br/>
+(parted) q  <br/>
+$ sudo mkfs.xfs /dev/sdb3  <br/>
 
 ![images](./images/list_parted_1_3.png)
 
 ## 1.4
 
-swapon --show
-sudo mkswap /dev/sdb2
-sudo swapon /dev/sdb2
+$ swapon --show  <br/>
+$ sudo mkswap /dev/sdb2  <br/>
+$ sudo swapon /dev/sdb2 <br/>
 
 
 ## 1.5
 
 ![images](./images/1_5_mount.png)
 
-$ sudo blkid /dev/sdb3
+$ sudo blkid /dev/sdb3  <br/>
 
 ```
 /dev/sdb3: UUID="71f77eaa-f2e3-47ec-ae31-a52d785ae12f" TYPE="xfs" PARTLABEL="primary" PARTUUID="1bfff556-f273-4804-a7d2-6ac5d1a3bd03" 
 ```
 
-nano /etc/fstab
+$ nano /etc/fstab  <br/>
 
 ```
-sudo blkid /dev/sdb3
-[sudo] password for user: 
+$ sudo blkid /dev/sdb3
 /dev/sdb3: UUID="71f77eaa-f2e3-47ec-ae31-a52d785ae12f" TYPE="xfs" PARTLABEL="primary" PARTUUID="1bfff556-f273-4804-a7d2-6ac5d1a3bd03" 
 ```
 
 ## 1.6
 
-echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab
+$ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab  <br/>
 
 ## 1.7 
 
@@ -127,7 +126,7 @@ echo '/dev/sdb2 none swap 0 0' | sudo tee -a /etc/fstab
 ## 2.1
 
 ```
-ector size (logical/physical): 512 bytes / 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk label type: gpt
 Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
@@ -137,7 +136,11 @@ Disk identifier: 0F0E87A6-24DB-48CB-92CC-E9B5FC133983
  1           34      4000000    1.9G  Linux filesyste primary
  2      4000001      5000000  488.3M  Linux swap      primary
  3      5000001      9000000    1.9G  Microsoft basic primary
-[user@localhost ~]$  sudo fdisk /dev/sdb 
+```
+
+$  sudo fdisk /dev/sdb   <br/>
+
+```
 WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
 Welcome to fdisk (util-linux 2.23.2).
 
@@ -151,23 +154,11 @@ Partition type (type L to list all types): L
 
 ...
 
-[user@localhost ~]$  sudo fdisk /dev/sdb 
-WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
-Welcome to fdisk (util-linux 2.23.2).
-
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
-
-
-Command (m for help): t
-Partition number (1-3, default 3): 1
-Partition type (type L to list all types): L
-
 ```
 
 ## 2.2
 
-$ sudo pvcreate /dev/sdb1
+$ sudo pvcreate /dev/sdb1  <br/>
 
 ```
 [user@localhost ~]$ pvs
@@ -183,11 +174,11 @@ $ sudo pvcreate /dev/sdb1
 
 ## 2.3
 
-$ sudo vgcreate root_vg /dev/sdb1
+$ sudo vgcreate root_vg /dev/sdb1  <br/>
 
 ## 2.4
 
-$ sudo lvcreate -L1G root_vg
+$ sudo lvcreate -L1G root_vg  <br/>
 
 ## 2.5
 

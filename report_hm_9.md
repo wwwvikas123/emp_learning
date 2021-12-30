@@ -411,10 +411,12 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 
 ## 2 
 
-Из предыдущего захваченного трафика видно,что первые два пакета - это Syn Ack запросы.
+As we see from previous captured dump, that first couple segments are SYN and ACK.
+(Из предыдущего захваченного трафика видно,что первые два пакета - это Syn Ack запросы.)
 
-Клиент - 192.168.33.1 - отправляет SYN серверу 192.168.33.200 со значениями seq и win.
+A client - 192.168.33.1 - send SYN to server (192.168.33.200) with values of seq and win (buffer size - how much packages is he ready to recive without approvement)
 
+(Клиент - 192.168.33.1 - отправляет SYN серверу - 192.168.33.200 -  со значениями seq и win.)
 
 ```
 tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 bytes
@@ -423,20 +425,24 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 21:26:09.568967 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
     192.168.33.200.ssh > 192.168.33.1.60114: Flags [S.], cksum 0xc448 (incorrect -> 0x4a8c), seq 3933191980, ack 1402528111, win 28960, options [mss 1460,sackOK,TS val 4294798223 ecr 1016878706,nop,wscale 7], length 0
 ```
-В третем пакете видно, что клиент подтверждает получение сегмента от сервера.
+Third fragment shows us that client has approved receving of segment
+(В третем пакете видно, что клиент подтверждает получение сегмента от сервера.)
 
 ```
 21:26:09.569206 IP (tos 0x0, ttl 64, id 2565, offset 0, flags [DF], proto TCP (6), length 52)
     192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xe881 (correct), seq 1, ack 1, win 502, options [nop,nop,TS val 1016878707 ecr 4294798223], length 0
 ```
 
-Далее соединение в состоянии Esteblished, Flags [P.] тому подтверждение.
+The connection is established,  Flags [P.] approves it.
+(Далее соединение в состоянии Established, Flags [P.] тому подтверждение.)
 
 ## 3
 
-Знаком завершения TCP является фрагмент с Flags [F.].
+Flags [F.] is a sign of connection finishing.
+(Знаком завершения TCP является фрагмент с Flags [F.].)
 
-Клиент инициировал завершение соединения. Клиент и серрвер обменияваются заключительными пакетами и подтвержениями их получения.
+The client had inisilized the clousing of connection. The client and server are exchanging with last fragments.
+(Клиент инициировал завершение соединения. Клиент и серрвер обменияваются заключительными пакетами и подтвержениями их получения.)
 
 ```
 192.168.33.1.60114 > 192.168.33.200.ssh: Flags [F.], cksum 0xd83e (correct), seq 4510, ack 3190, win 501, options [nop,nop,TS val 1016909714 ecr 4294829216], length 0

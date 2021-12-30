@@ -411,11 +411,10 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 
 ## 2 
 
-As we see from previous captured dump, that first couple segments are SYN and ACK.
+As we see from previous captured dump, that first couple segments are SYN and ACK. <br/>
 (Из предыдущего захваченного трафика видно,что первые два пакета - это Syn Ack запросы.)
 
-A client - 192.168.33.1 - send SYN to server (192.168.33.200) with values of seq and win (buffer size - how much packages is he ready to recive without approvement)
-
+A client - 192.168.33.1 - send SYN to server (192.168.33.200) with values of seq and win (buffer size - how much packages is he ready to recive without approvement) <br/>
 (Клиент - 192.168.33.1 - отправляет SYN серверу - 192.168.33.200 -  со значениями seq и win.)
 
 ```
@@ -425,7 +424,7 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 21:26:09.568967 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
     192.168.33.200.ssh > 192.168.33.1.60114: Flags [S.], cksum 0xc448 (incorrect -> 0x4a8c), seq 3933191980, ack 1402528111, win 28960, options [mss 1460,sackOK,TS val 4294798223 ecr 1016878706,nop,wscale 7], length 0
 ```
-Third fragment shows us that client has approved receving of segment
+Third fragment shows us that client has approved receving of segment <br/>
 (В третем пакете видно, что клиент подтверждает получение сегмента от сервера.)
 
 ```
@@ -433,15 +432,15 @@ Third fragment shows us that client has approved receving of segment
     192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xe881 (correct), seq 1, ack 1, win 502, options [nop,nop,TS val 1016878707 ecr 4294798223], length 0
 ```
 
-The connection is established,  Flags [P.] approves it.
+The connection is established,  Flags [P.] approves it. <br/>
 (Далее соединение в состоянии Established, Flags [P.] тому подтверждение.)
 
 ## 3
 
-Flags [F.] is a sign of connection finishing.
+Flags [F.] is a sign of connection finishing. <br/>
 (Знаком завершения TCP является фрагмент с Flags [F.].)
 
-The client had inisilized the clousing of connection. The client and server are exchanging with last fragments.
+The client had inisilized the clousing of connection. The client and server are exchanging with last fragments. <br/>
 (Клиент инициировал завершение соединения. Клиент и серрвер обменияваются заключительными пакетами и подтвержениями их получения.)
 
 ```

@@ -1,5 +1,7 @@
 ## 1
 
+### 1.1
+
 $ sudo ip address add 192.168.33.200/24 dev ens34
 
 Checking of ssh connection btw host and vm:

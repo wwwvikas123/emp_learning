@@ -117,17 +117,21 @@ $ sudo ip address del 192.168.33.200/24 dev ens34
 
 ### 1.2
 
-$ sudo nano /etc/sysconfig/network-scripts/ifcfg-ens34:1
+$ sudo nano /etc/sysconfig/network-scripts/ifcfg-ens34
 
 ```
-DEVICE=ens34:1
-Type=Ethernet
-ONBOOT=yes
 NM_CONTROLLED=no
-BOOTPROTO=none
-IPADDR=192.168.33.200
-PREFIX=24
+DEVICE=ens34
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR0=192.168.33.118
+PREFIX0=24
+IPADDR1=192.168.33.200
+PREFIX1=24
 ```
+
+$ sudo reboot
+
 Checking of ssh connection btw host and vm:
 
 <details><summary>$ sudo tcpdump -ni ens34 port 22 -vv</summary>
@@ -261,3 +265,6 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 0 packets dropped by kernel
 ```
 </details>    
+
+$ sudo rm  /etc/sysconfig/network-scripts/ifcfg-ens34
+$ sudo reboot

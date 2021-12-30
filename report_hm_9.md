@@ -268,3 +268,143 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 
 $ sudo rm  /etc/sysconfig/network-scripts/ifcfg-ens34
 $ sudo reboot
+
+
+## 1.3
+
+
+$ sudo reboot
+
+Checking of ssh connection btw host and vm:
+
+<details><summary>$ sudo tcpdump -ni ens34 port 22 -vv</summary>
+
+```
+tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:26:09.568741 IP (tos 0x0, ttl 64, id 2564, offset 0, flags [DF], proto TCP (6), length 60)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [S], cksum 0xd5f6 (correct), seq 1402528110, win 64240, options [mss 1460,sackOK,TS val 1016878706 ecr 0,nop,wscale 7], length 0
+21:26:09.568967 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [S.], cksum 0xc448 (incorrect -> 0x4a8c), seq 3933191980, ack 1402528111, win 28960, options [mss 1460,sackOK,TS val 4294798223 ecr 1016878706,nop,wscale 7], length 0
+21:26:09.569206 IP (tos 0x0, ttl 64, id 2565, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xe881 (correct), seq 1, ack 1, win 502, options [nop,nop,TS val 1016878707 ecr 4294798223], length 0
+21:26:09.569939 IP (tos 0x0, ttl 64, id 2566, offset 0, flags [DF], proto TCP (6), length 93)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xc528 (correct), seq 1:42, ack 1, win 502, options [nop,nop,TS val 1016878707 ecr 4294798223], length 41
+21:26:09.570040 IP (tos 0x0, ttl 64, id 54434, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xe96a), seq 1, ack 42, win 227, options [nop,nop,TS val 4294798224 ecr 1016878707], length 0
+21:26:09.597045 IP (tos 0x0, ttl 64, id 54435, offset 0, flags [DF], proto TCP (6), length 73)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc455 (incorrect -> 0x258b), seq 1:22, ack 42, win 227, options [nop,nop,TS val 4294798250 ecr 1016878707], length 21
+21:26:09.597370 IP (tos 0x0, ttl 64, id 2567, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xe80c (correct), seq 42, ack 22, win 502, options [nop,nop,TS val 1016878735 ecr 4294798250], length 0
+21:26:09.597974 IP (tos 0x0, ttl 64, id 2568, offset 0, flags [DF], proto TCP (6), length 1564)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xca28 (incorrect -> 0xc6e6), seq 42:1554, ack 22, win 502, options [nop,nop,TS val 1016878735 ecr 4294798250], length 1512
+21:26:09.598077 IP (tos 0x0, ttl 64, id 54436, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xe31e), seq 22, ack 1554, win 250, options [nop,nop,TS val 4294798252 ecr 1016878735], length 0
+21:26:09.610747 IP (tos 0x0, ttl 64, id 54437, offset 0, flags [DF], proto TCP (6), length 1332)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc940 (incorrect -> 0x85fc), seq 22:1302, ack 1554, win 250, options [nop,nop,TS val 4294798264 ecr 1016878735], length 1280
+21:26:09.611030 IP (tos 0x0, ttl 64, id 2570, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xdd0a (correct), seq 1554, ack 1302, win 501, options [nop,nop,TS val 1016878748 ecr 4294798264], length 0
+21:26:09.614211 IP (tos 0x0, ttl 64, id 2571, offset 0, flags [DF], proto TCP (6), length 100)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x079a (correct), seq 1554:1602, ack 1302, win 501, options [nop,nop,TS val 1016878752 ecr 4294798264], length 48
+21:26:09.617870 IP (tos 0x0, ttl 64, id 54438, offset 0, flags [DF], proto TCP (6), length 416)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc5ac (incorrect -> 0x4caf), seq 1302:1666, ack 1602, win 250, options [nop,nop,TS val 4294798271 ecr 1016878752], length 364
+21:26:09.618176 IP (tos 0x0, ttl 64, id 2572, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xdb5f (correct), seq 1602, ack 1666, win 501, options [nop,nop,TS val 1016878756 ecr 4294798271], length 0
+21:26:09.622226 IP (tos 0x0, ttl 64, id 2573, offset 0, flags [DF], proto TCP (6), length 68)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xd122 (correct), seq 1602:1618, ack 1666, win 501, options [nop,nop,TS val 1016878760 ecr 4294798271], length 16
+21:26:09.661944 IP (tos 0x0, ttl 64, id 54439, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xdc19), seq 1666, ack 1618, win 250, options [nop,nop,TS val 4294798316 ecr 1016878760], length 0
+21:26:09.662201 IP (tos 0x0, ttl 64, id 2574, offset 0, flags [DF], proto TCP (6), length 96)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x6647 (correct), seq 1618:1662, ack 1666, win 501, options [nop,nop,TS val 1016878800 ecr 4294798316], length 44
+21:26:09.662266 IP (tos 0x0, ttl 64, id 54440, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xdbc5), seq 1666, ack 1662, win 250, options [nop,nop,TS val 4294798316 ecr 1016878800], length 0
+21:26:09.662632 IP (tos 0x0, ttl 64, id 54441, offset 0, flags [DF], proto TCP (6), length 96)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc46c (incorrect -> 0x126f), seq 1666:1710, ack 1662, win 250, options [nop,nop,TS val 4294798316 ecr 1016878800], length 44
+21:26:09.663007 IP (tos 0x0, ttl 64, id 2575, offset 0, flags [DF], proto TCP (6), length 112)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xe6ac (correct), seq 1662:1722, ack 1710, win 501, options [nop,nop,TS val 1016878800 ecr 4294798316], length 60
+21:26:09.705987 IP (tos 0x0, ttl 64, id 54442, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xdb31), seq 1710, ack 1722, win 250, options [nop,nop,TS val 4294798360 ecr 1016878800], length 0
+21:26:29.682819 IP (tos 0x0, ttl 64, id 54443, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0x7d34), seq 1710:1794, ack 1722, win 250, options [nop,nop,TS val 4294818335 ecr 1016878800], length 84
+21:26:29.684849 IP (tos 0x0, ttl 64, id 2576, offset 0, flags [DF], proto TCP (6), length 552)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xf09f (correct), seq 1722:2222, ack 1794, win 501, options [nop,nop,TS val 1016898835 ecr 4294818335], length 500
+21:26:29.684948 IP (tos 0x0, ttl 64, id 54444, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0x3c84), seq 1794, ack 2222, win 273, options [nop,nop,TS val 4294818339 ecr 1016898835], length 0
+21:26:29.692234 IP (tos 0x0, ttl 64, id 54445, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0x9dea), seq 1794:1878, ack 2222, win 273, options [nop,nop,TS val 4294818346 ecr 1016898835], length 84
+21:26:29.692603 IP (tos 0x0, ttl 64, id 2577, offset 0, flags [DF], proto TCP (6), length 552)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x2c35 (correct), seq 2222:2722, ack 1878, win 501, options [nop,nop,TS val 1016898843 ecr 4294818346], length 500
+21:26:29.693753 IP (tos 0x0, ttl 64, id 54446, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0x3dd6), seq 1878:1962, ack 2722, win 296, options [nop,nop,TS val 4294818347 ecr 1016898843], length 84
+21:26:29.694375 IP (tos 0x0, ttl 64, id 2578, offset 0, flags [DF], proto TCP (6), length 552)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xa5b0 (correct), seq 2722:3222, ack 1962, win 501, options [nop,nop,TS val 1016898844 ecr 4294818347], length 500
+21:26:29.695081 IP (tos 0x0, ttl 64, id 54447, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0x7628), seq 1962:2046, ack 3222, win 318, options [nop,nop,TS val 4294818349 ecr 1016898844], length 84
+21:26:29.695559 IP (tos 0x0, ttl 64, id 2579, offset 0, flags [DF], proto TCP (6), length 552)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xd83d (correct), seq 3222:3722, ack 2046, win 501, options [nop,nop,TS val 1016898846 ecr 4294818349], length 500
+21:26:29.696252 IP (tos 0x0, ttl 64, id 54448, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0xbc17), seq 2046:2130, ack 3722, win 341, options [nop,nop,TS val 4294818350 ecr 1016898846], length 84
+21:26:29.737352 IP (tos 0x0, ttl 64, id 2580, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0x3435 (correct), seq 3722, ack 2130, win 501, options [nop,nop,TS val 1016898887 ecr 4294818350], length 0
+21:26:36.295990 IP (tos 0x0, ttl 64, id 2581, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x6433 (correct), seq 3722:3806, ack 2130, win 501, options [nop,nop,TS val 1016905446 ecr 4294818350], length 84
+21:26:36.319079 IP (tos 0x0, ttl 64, id 54449, offset 0, flags [DF], proto TCP (6), length 80)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc45c (incorrect -> 0xc73d), seq 2130:2158, ack 3806, win 341, options [nop,nop,TS val 4294824973 ecr 1016905446], length 28
+21:26:36.319472 IP (tos 0x0, ttl 64, id 2582, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0x002f (correct), seq 3806, ack 2158, win 501, options [nop,nop,TS val 1016905470 ecr 4294824973], length 0
+21:26:36.319750 IP (tos 0x0, ttl 64, id 2583, offset 0, flags [DF], proto TCP (6), length 164)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0xe2a1 (correct), seq 3806:3918, ack 2158, win 501, options [nop,nop,TS val 1016905470 ecr 4294824973], length 112
+21:26:36.359682 IP (tos 0x0, ttl 64, id 54450, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0x0037), seq 2158, ack 3918, win 341, options [nop,nop,TS val 4294825013 ecr 1016905470], length 0
+21:26:36.628083 IP (tos 0x0, ttl 64, id 54451, offset 0, flags [DF], proto TCP (6), length 552)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc634 (incorrect -> 0xd29c), seq 2158:2658, ack 3918, win 341, options [nop,nop,TS val 4294825281 ecr 1016905470], length 500
+21:26:36.628413 IP (tos 0x0, ttl 64, id 2584, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xfb61 (correct), seq 3918, ack 2658, win 501, options [nop,nop,TS val 1016905779 ecr 4294825281], length 0
+21:26:36.628481 IP (tos 0x0, ttl 64, id 54452, offset 0, flags [DF], proto TCP (6), length 96)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc46c (incorrect -> 0x22b4), seq 2658:2702, ack 3918, win 341, options [nop,nop,TS val 4294825282 ecr 1016905779], length 44
+21:26:36.628608 IP (tos 0x0, ttl 64, id 2585, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xfb34 (correct), seq 3918, ack 2702, win 501, options [nop,nop,TS val 1016905779 ecr 4294825282], length 0
+21:26:36.628871 IP (tos 0x10, ttl 64, id 2586, offset 0, flags [DF], proto TCP (6), length 512)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x07e4 (correct), seq 3918:4378, ack 2702, win 501, options [nop,nop,TS val 1016905779 ecr 4294825282], length 460
+21:26:36.628953 IP (tos 0x0, ttl 64, id 54453, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xf9f2), seq 2702, ack 4378, win 363, options [nop,nop,TS val 4294825282 ecr 1016905779], length 0
+21:26:36.639702 IP (tos 0x10, ttl 64, id 54454, offset 0, flags [DF], proto TCP (6), length 160)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc4ac (incorrect -> 0x41e2), seq 2702:2810, ack 4378, win 363, options [nop,nop,TS val 4294825293 ecr 1016905779], length 108
+21:26:36.639917 IP (tos 0x10, ttl 64, id 2587, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xf8e6 (correct), seq 4378, ack 2810, win 501, options [nop,nop,TS val 1016905790 ecr 4294825293], length 0
+21:26:36.644706 IP (tos 0x10, ttl 64, id 54455, offset 0, flags [DF], proto TCP (6), length 128)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc48c (incorrect -> 0xf207), seq 2810:2886, ack 4378, win 363, options [nop,nop,TS val 4294825298 ecr 1016905790], length 76
+21:26:36.645209 IP (tos 0x10, ttl 64, id 2588, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xf890 (correct), seq 4378, ack 2886, win 501, options [nop,nop,TS val 1016905795 ecr 4294825298], length 0
+21:26:36.900223 IP (tos 0x10, ttl 64, id 54456, offset 0, flags [DF], proto TCP (6), length 136)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc494 (incorrect -> 0xf4ea), seq 2886:2970, ack 4378, win 363, options [nop,nop,TS val 4294825554 ecr 1016905795], length 84
+21:26:36.900550 IP (tos 0x10, ttl 64, id 2589, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xf63c (correct), seq 4378, ack 2970, win 501, options [nop,nop,TS val 1016906051 ecr 4294825554], length 0
+21:26:40.559635 IP (tos 0x10, ttl 64, id 2590, offset 0, flags [DF], proto TCP (6), length 88)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x26fb (correct), seq 4378:4414, ack 2970, win 501, options [nop,nop,TS val 1016909710 ecr 4294825554], length 36
+21:26:40.562027 IP (tos 0x10, ttl 64, id 54457, offset 0, flags [DF], proto TCP (6), length 96)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc46c (incorrect -> 0xb0bc), seq 2970:3014, ack 4414, win 363, options [nop,nop,TS val 4294829216 ecr 1016909710], length 44
+21:26:40.562311 IP (tos 0x10, ttl 64, id 2591, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xd950 (correct), seq 4414, ack 3014, win 501, options [nop,nop,TS val 1016909713 ecr 4294829216], length 0
+21:26:40.563177 IP (tos 0x10, ttl 64, id 54458, offset 0, flags [DF], proto TCP (6), length 228)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [P.], cksum 0xc4f0 (incorrect -> 0x2aa8), seq 3014:3190, ack 4414, win 363, options [nop,nop,TS val 4294829216 ecr 1016909713], length 176
+21:26:40.563678 IP (tos 0x10, ttl 64, id 2592, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xd89f (correct), seq 4414, ack 3190, win 501, options [nop,nop,TS val 1016909714 ecr 4294829216], length 0
+21:26:40.563873 IP (tos 0x10, ttl 64, id 2593, offset 0, flags [DF], proto TCP (6), length 88)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x329e (correct), seq 4414:4450, ack 3190, win 501, options [nop,nop,TS val 1016909714 ecr 4294829216], length 36
+21:26:40.563888 IP (tos 0x10, ttl 64, id 2594, offset 0, flags [DF], proto TCP (6), length 112)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [P.], cksum 0x9a00 (correct), seq 4450:4510, ack 3190, win 501, options [nop,nop,TS val 1016909714 ecr 4294829216], length 60
+21:26:40.563891 IP (tos 0x10, ttl 64, id 2595, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [F.], cksum 0xd83e (correct), seq 4510, ack 3190, win 501, options [nop,nop,TS val 1016909714 ecr 4294829216], length 0
+21:26:40.563992 IP (tos 0x10, ttl 64, id 54459, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [.], cksum 0xc440 (incorrect -> 0xd8c6), seq 3190, ack 4511, win 363, options [nop,nop,TS val 4294829218 ecr 1016909714], length 0
+21:26:40.582547 IP (tos 0x10, ttl 64, id 54460, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.200.ssh > 192.168.33.1.60114: Flags [F.], cksum 0xc440 (incorrect -> 0xd8b3), seq 3190, ack 4511, win 363, options [nop,nop,TS val 4294829236 ecr 1016909714], length 0
+21:26:40.582804 IP (tos 0x10, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    192.168.33.1.60114 > 192.168.33.200.ssh: Flags [.], cksum 0xd816 (correct), seq 4511, ack 3191, win 501, options [nop,nop,TS val 1016909733 ecr 4294829236], length 0
+^C
+60 packets captured
+60 packets received by filter
+0 packets dropped by kernel   
+```
+    
+ </details>     

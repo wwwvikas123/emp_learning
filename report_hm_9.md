@@ -278,9 +278,9 @@ $ sudo reboot
 
 ![images](./images/mncli_1.3.png)
 
-![images](./images/after_nmcli.png)
-
 $ sudo reboot
+
+![images](./images/after_nmcli.png)
 
 Checking of ssh connection btw host and vm:
 

@@ -2,7 +2,11 @@
 
 ### 1.1
 
+![images](./images/9ex_1.1_was.png)
+
 $ sudo ip address add 192.168.33.200/24 dev ens34
+
+![images](./images/9ex_1.1.png)
 
 Checking of ssh connection btw host and vm:
 
@@ -272,6 +276,9 @@ $ sudo reboot
 
 ## 1.3
 
+![images](./images/mncli_1.3.png)
+
+![images](./images/after_nmcli.png)
 
 $ sudo reboot
 

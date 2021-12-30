@@ -2,7 +2,7 @@
 
 $ sudo ip address add 192.168.33.200/24 dev ens34
 
-Проверка соединения 
+Checking of ssh connection btw host and vm:
 
 <details><summary>$ sudo tcpdump -ni ens34 port 22 -v</summary>
     
@@ -110,4 +110,5 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
     
 </details>
 
-Deleting: $ sudo ip address del 192.168.33.200/24 dev ens34
+Deleting: 
+$ sudo ip address del 192.168.33.200/24 dev ens34

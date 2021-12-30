@@ -5,6 +5,7 @@ $ sudo ip address add 192.168.33.200/24 dev ens34
 Проверка соединения 
 
 <details><summary>$ sudo tcpdump -ni ens34 port 22 -v</summary>
+    
 ```
 tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 bytes
 20:30:50.677919 IP (tos 0x0, ttl 64, id 2160, offset 0, flags [DF], proto TCP (6), length 60)
@@ -106,6 +107,7 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 20:31:08.902301 IP (tos 0x10, ttl 64, id 2185, offset 0, flags [DF], proto TCP (6), length 52)
     192.168.33.1.59112 > 192.168.33.200.ssh: Flags [.], cksum 0xd98b (correct), ack 3138, win 501, options [nop,nop,TS val 1013578061 ecr 3126413], length 0
 ```
+    
 </details>
 
 Deleting: $ sudo ip address del 192.168.33.200/24 dev ens34

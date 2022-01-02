@@ -119,7 +119,7 @@ tcpdump: listening on ens34, link-type EN10MB (Ethernet), capture size 262144 by
 Deleting: 
 $ sudo ip address del 192.168.33.200/24 dev ens34
 
-### 1.2
+### 1.2 (UPDATE)
 
 $ sudo nano /etc/sysconfig/network-scripts/ifcfg-ens34
 
@@ -134,7 +134,7 @@ IPADDR1=192.168.33.200
 PREFIX1=24
 ```
 
-$ sudo reboot
+$ sudo systemctl restart network.service 
 
 Checking of ssh connection btw host and vm:
 

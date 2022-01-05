@@ -274,11 +274,11 @@ $ sudo rm  /etc/sysconfig/network-scripts/ifcfg-ens34
 $ sudo reboot
 
 
-## 1.3
+## 1.3 (UPDATE)
 
 ![images](./images/mncli_1.3.png)
 
-$ sudo reboot
+$ sudo nmcli connection down Wired\ connection\ 1 && nmcli connection up Wired\ connection\ 1 
 
 ![images](./images/after_nmcli.png)
 

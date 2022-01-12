@@ -83,8 +83,8 @@ GRUB_TERMINAL_OUTPUT="console"
 GRUB_CMDLINE_LINUX="crashkernel=auto rhgb quiet selinux=0"
 GRUB_DISABLE_RECOVERY="true"
 ```
-$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-$ reboot
+$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg  <br/>
+$ reboot  <br/>
 
 ```
 $ sestatus 

@@ -50,24 +50,24 @@ drwxr-xr-x   2 root     root            0 Dec 16 19:00 usr/lib/modules/3.10.0-11
 -rwxr-xr-x   1 root     root          747 Sep 30  2020 usr/sbin/xfs_metadump
 -rwxr-xr-x   1 root     root       576720 Dec 16 19:00 usr/sbin/xfs_repair
 ```
-usr/lib/modules/ - modules of kernel to work with xfs
-fsck.xfs is called by the generic Linux fsck(8) program at startup to check and repair an XFS filesystem.
-xfs_db is  used to examine an XFS filesystem. Under rare circumstances it can also be used to modify an XFS filesystem.
-xfs_metadump  is a debugging tool that copies the metadata from an XFS filesystem to a file. 
+usr/lib/modules/ - modules of kernel to work with xfs  <br/>
+fsck.xfs is called by the generic Linux fsck(8) program at startup to check and repair an XFS filesystem.  <br/>
+xfs_db is  used to examine an XFS filesystem. Under rare circumstances it can also be used to modify an XFS filesystem.  <br/>
+xfs_metadump  is a debugging tool that copies the metadata from an XFS filesystem to a file.   <br/>
 xfs_repair  repairs  corrupt  or  damaged XFS filesystems 
 
 2. Study dracut utility that is used for rebuilding initrd image. Give an example for adding driver/kernel module for your initrd and recreating it.
 
-according to the docs 
-dracut --force --add-drivers <module_name> /boot/<initrd-kernel_version>
+according to the docs   <br/>
+dracut --force --add-drivers <module_name> /boot/<initrd-kernel_version>  <br/>
 
-so, 
-dracut --force --add-drivers kernel /boot/initramfs-$(uname -r).img $(uname -r)
+so,   <br/>
+dracut --force --add-drivers kernel /boot/initramfs-$(uname -r).img $(uname -r)  <br/>
 
 3. Explain the difference between ordinary and rescue initrd images.
 
-I guess, ordinary initrd image acts as a root filesystem with certain modules that are needed for normal start of system.
-Rescue initrd image consists of certain modules that are needed for recovering of system.
+I guess, ordinary initrd image acts as a root filesystem with certain modules that are needed for normal start of system. <br/>
+Rescue initrd image consists of certain modules that are needed for recovering of system. <br/>
 
 ## Selinux
 
@@ -143,13 +143,13 @@ external (active)
 
 2. Shutdown firewalld and add the same rules via iptables.
 
-$ sudo systemctl stop firewalld.service --now
-$ sudo systemctl start iptables.service --now
+$ sudo systemctl stop firewalld.service --now  <br/>
+$ sudo systemctl start iptables.service --now <br/>
 
-$sudo iptables-save > before_off_ssh.txt
-$ sudo iptables -A INPUT -p tcp -s 192.168.0.0/24  --dport 22 -j ACCEPT
-$ sudo sleep 60 && sudo iptables-restore before_off_ssh.txt (second tab)
-$ sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+$sudo iptables-save > before_off_ssh.txt  <br/>
+$ sudo iptables -A INPUT -p tcp -s 192.168.0.0/24  --dport 22 -j ACCEPT  <br/>
+$ sudo sleep 60 && sudo iptables-restore before_off_ssh.txt (second tab) <br/>
+$ sudo iptables -A INPUT -p tcp --dport 22 -j DROP <br/>
 
 ```
 [user@localhost ~]$ sudo iptables --list 
@@ -171,6 +171,6 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination         
 ```
 
-(for persistance)
-sudo yum install iptables-persistent
-sudo iptables-save > /etc/iptables/rules.v4
+(for persistance)  <br/>
+sudo yum install iptables-persistent  <br/>
+sudo iptables-save > /etc/iptables/rules.v4 <br/>

@@ -90,3 +90,87 @@ $ reboot
 $ sestatus 
 SELinux status:                 disabled
 ```
+
+## Firewalls
+​
+1. Add rule using firewall-cmd that will allow SSH access to your server *only* from network 192.168.56.0/24 and interface enp0s8 (if your network and/on interface name differs - change it accordingly).
+
+```
+$ sudo firewall-cmd --zone=external --list-all
+external
+  target: default
+  icmp-block-inversion: no
+  interfaces: 
+  sources: 
+  services: ssh
+  ports: 
+  protocols: 
+  masquerade: yes
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+  
+$ sudo firewall-cmd --get-active-zones 
+external
+  interfaces: ens33
+public
+  interfaces: ens34
+
+[user@localhost ~]$ sudo firewall-cmd --zone=external --change-interface=
+ens33       ens34       lo          virbr0      virbr0-nic  
+[user@localhost ~]$ sudo firewall-cmd --zone=external --change-interface=ens33 
+success
+
+ sudo firewall-cmd --zone=external --add-rich-rule 'rule family="ipv4" service name="ssh" source address="192.168.0.0/24" accept'
+success
+[user@localhost ~]$ sudo firewall-cmd --zone=external --list-all
+external (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: ssh
+  ports: 
+  protocols: 
+  masquerade: yes
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	rule family="ipv4" source address="192.168.0.0/24" service name="ssh" accept
+```
+
+2. Shutdown firewalld and add the same rules via iptables.
+
+$ sudo systemctl stop firewalld.service --now
+$ sudo systemctl start iptables.service --now
+
+$sudo iptables-save > before_off_ssh.txt
+$ sudo iptables -A INPUT -p tcp -s 192.168.0.0/24  --dport 22 -j ACCEPT
+$ sudo sleep 60 && sudo iptables-restore before_off_ssh.txt (second tab)
+$ sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+
+```
+[user@localhost ~]$ sudo iptables --list 
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     all  --  anywhere             anywhere            
+ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+ACCEPT     tcp  --  192.168.0.0/24       anywhere             tcp dpt:ssh
+DROP       tcp  --  anywhere             anywhere             tcp dpt:ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+```
+
+(for persistance)
+sudo yum install iptables-persistent
+sudo iptables-save > /etc/iptables/rules.v4

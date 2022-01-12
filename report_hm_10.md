@@ -15,10 +15,10 @@ GRUB_DISABLE_RECOVERY="false"
 $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ![images](./images/recovery_on_10.png)
 
-3. modify option vm.dirty_ratio:
+2. modify option vm.dirty_ratio:
    - using echo utility
    - using sysctl utility
-   - 
+
 ![images](./images/utility_10.png)
 
    - using sysctl configuration files

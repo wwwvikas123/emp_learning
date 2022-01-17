@@ -122,8 +122,8 @@ ens33       ens34       lo          virbr0      virbr0-nic
 [user@localhost ~]$ sudo firewall-cmd --zone=external --change-interface=ens33 
 success
 
- sudo firewall-cmd --zone=external --add-rich-rule 'rule family="ipv4" service name="ssh" source address="192.168.0.0/24" accept'
-success
+ sudo firewall-cmd --zone=external --add-source=192.168.0.0/24 --permanent
+ firewall-cmd --reload
 [user@localhost ~]$ sudo firewall-cmd --zone=external --list-all
 external (active)
   target: default

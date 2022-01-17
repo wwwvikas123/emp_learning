@@ -95,6 +95,7 @@ SELinux status:                 disabled
 ​
 1. Add rule using firewall-cmd that will allow SSH access to your server *only* from network 192.168.56.0/24 and interface enp0s8 (if your network and/on interface name differs - change it accordingly).
 
+### UPDATE
 ```
 $ sudo firewall-cmd --zone=external --list-all
 external
@@ -122,7 +123,7 @@ ens33       ens34       lo          virbr0      virbr0-nic
 [user@localhost ~]$ sudo firewall-cmd --zone=external --change-interface=ens33 
 success
 
- sudo firewall-cmd --zone=external --add-source=192.168.0.0/24 --permanent
+ sudo firewall-cmd --zone=external --add-source=192.168.0.0/24 --permanent 
  firewall-cmd --reload
 [user@localhost ~]$ sudo firewall-cmd --zone=external --list-all
 external (active)

@@ -63,7 +63,7 @@ $  sudo yum install ncdu.x86_64
 ## Work with files
 ​
 1. Find all regular files below 100 bytes inside your home directory. <br/>
-find . -type f -size 0b
+find . -type f -size -100c
 
 2. Find an inode number and a hard links count for the root directory. The hard link count should be about 17. Why? <br/>
 $ stat --format="innodes"/"%i""  ""links"/"%h" /  <br/>

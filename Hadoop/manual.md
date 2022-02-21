@@ -31,7 +31,7 @@ docker-compose up -d
 ### to stop them
 
 ```
-docker-compose down
+docker-compose down && docker volume ls --filter name=hadoop_  --format "{{.Name}}" | xargs docker volume rm
 ```
 
 ## to see containers

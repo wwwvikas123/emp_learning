@@ -36,7 +36,7 @@ docker-compose down
 
 ## to see containers
 
-run <docker ps>  and u will see containers "hadoop-headnode", "hadoop-worker"
+run \<docker ps\>  and u will see containers "hadoop-headnode", "hadoop-worker"
 
 ## how do volumes work ?
 Docker volumes was used and to see them run <docker volume ls>, u will se 

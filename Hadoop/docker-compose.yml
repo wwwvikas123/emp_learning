@@ -1,0 +1,43 @@
+---
+version: '3.3'
+
+services:
+
+  vm1:
+    container_name: hadoop-headnode
+    image: www123vika/hadoop_headnode:latest
+    ports:
+      - 127.0.0.1:1000:8088
+      - 127.0.0.1:9870:9870
+    environment:
+      - HEADNODE_HOST=vm1
+    volumes:
+      - headnode_data_mount1:/opt/mount1
+      - headnode_data_mount2:/opt/mount2
+    networks:
+      - hadoop-net
+    restart: always
+
+  vm2:
+    container_name: hadoop-worker
+    image: www123vika/hadoop_worker:latest
+    environment:
+      - HEADNODE_HOST=vm1  
+    volumes:
+      - worker_data_mount1:/opt/mount1
+      - worker_data_mount2:/opt/mount2  
+    networks:
+      - hadoop-net
+    restart: always
+    depends_on:
+      - vm1
+
+volumes:
+  headnode_data_mount1:
+  headnode_data_mount2:
+  worker_data_mount1:
+  worker_data_mount2:
+  
+networks:
+  hadoop-net:
+    driver: bridge

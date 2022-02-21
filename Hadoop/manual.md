@@ -39,7 +39,7 @@ docker-compose down
 run \<docker ps\>  and u will see containers "hadoop-headnode", "hadoop-worker"
 
 ## how do volumes work ?
-Docker volumes was used and to see them run <docker volume ls>, u will se 
+Docker volumes was used and to see them run \<docker volume ls\>, u will se 
 
 ```
 DRIVER    VOLUME NAME
@@ -48,7 +48,7 @@ local     hadoop_headnode_data_mount2
 local     hadoop_worker_data_mount1
 local     hadoop_worker_data_mount2
 ```
-u can also took at network due to executing <docker network ls>
+u can also took at network due to executing \<docker network ls\>
 
 ```
 NETWORK ID     NAME                DRIVER    SCOPE

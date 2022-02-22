@@ -13,7 +13,7 @@
 ## To build images locally and start, run theese commands
 
 ```
-docker-compose -f docker-compose_build.yaml && docker-compose -f docker-compose_build.yaml up -d
+docker-compose -f docker-compose_build.yaml build && docker-compose -f docker-compose_build.yaml up -d
 ```
 
 ### to stop them

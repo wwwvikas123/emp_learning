@@ -38,7 +38,7 @@ install -d --group=$USER --owner=$USER /opt/mount1/datanode-dir && \
 install -d --group=$USER --owner=$USER /opt/mount2/datanode-dir && \
 install -d --group=$USER --owner=$USER /opt/mount1/nodemanager-local-dir && \
 install -d --group=$USER --owner=$USER /opt/mount2/nodemanager-log-dir && \
-install -d --group=$USER --owner=$USER /opt/mount1/nodemanagerlog-dir && \
+install -d --group=$USER --owner=$USER /opt/mount1/nodemanager-log-dir && \
 install -d --group=$USER --owner=$USER /opt/mount2/nodemanager-local-dir
 
 # expose various ports

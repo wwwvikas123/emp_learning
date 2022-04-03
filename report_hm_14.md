@@ -67,7 +67,7 @@ git push
 
 ## Задача 3
 
-всё в архиве (тут)[https://github.com/wwwvikas123/epm_learning/blob/chapter_14/gitlab.zip]
+всё в архиве (here)[https://github.com/wwwvikas123/epm_learning/blob/chapter_14/gitlab.zip]
 
 ## Задача 4
 

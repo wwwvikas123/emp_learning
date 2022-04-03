@@ -3,7 +3,7 @@
 
     - name: Install lvm2 and device-mapper-persistent-data
       yum: name={{ item }} state=latest update_cache=yes
-      loop: [ 'device-mapper-persistent-data', 'lvm2' ]     
+      loop: [ 'yum-utils', 'device-mapper-persistent-data', 'lvm2' ]     
 
     - name: Add Docker repo
       get_url:

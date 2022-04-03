@@ -1,0 +1,5 @@
+---
+# vars file for mysql
+#    server_name: "{{ ansible_default_ipv4.address }}"   
+    mysql_root_password: password123   
+    mysql_test_user_password: WRWwCR@32

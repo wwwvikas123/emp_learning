@@ -1,0 +1,26 @@
+#server {
+#  listen 80;
+
+#  root /var/www-data;
+#  index index.html index.htm example.com;
+
+#  server_name _;
+
+#  location / {
+#   default_type "text/html";
+#   try_files $uri.html $uri $uri/ =404;
+#  }
+#}
+
+    server {
+        listen       80;
+        #server_name  _;
+        root         /var/www-data;
+        
+    location / {
+       default_type "text/html";
+       try_files $uri.html $uri $uri/ =404;
+      }
+
+    }
+

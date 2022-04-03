@@ -1,0 +1,29 @@
+- name: Config all
+  hosts: vm2
+  user: ansi
+  gather_facts: yes
+  become: yes
+  vars: 
+    user: doc
+    server_name: "{{ ansible_default_ipv4.address }}" 
+
+  tasks:
+    - name: Configure user using role
+      import_role:
+        name: user_upd_packs
+
+    - name: Configure ntp using role
+      import_role:
+        name: ntp
+
+    - name: Configure mysql using role
+      import_role:
+        name: mysql
+        
+    - name: Configure nginx using role
+      import_role:
+        name: nginx_site
+        
+    - name: Configure docker using role
+      import_role:
+        name: docker

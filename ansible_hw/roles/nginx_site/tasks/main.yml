@@ -1,0 +1,64 @@
+---
+# tasks file for nginx_site
+
+#    - name: Install Nginx
+#      yum: name=ntp state=latest update_cache=yes
+#      tags: nginx
+#
+#    - name: Copy nginx.conf
+#      template:
+#        src: nginx.conf.j2
+#        dest: /etc/nginx/nginx.conf
+#
+#    - name: Creates sites-enabled, sites-available and site directory
+#      file:
+#       path: "{{ item }}"
+#       state: directory
+#      with_items: 
+#        -  /etc/nginx/sites-enabled/
+#        - /etc/nginx/sites-available/
+#        - /var/www-data
+#
+#    - name: Apply Nginx template
+#      template:
+#        src: default.conf.j2
+#        dest: /etc/nginx/sites-available/mysite.com
+#      notify: Restart Nginx
+#
+#    - name: Apply symlinks in sites-enabled
+#      file:
+#        dest: /etc/nginx/sites-enabled/mysite.com
+#        src: /etc/nginx/sites-available/mysite.com
+#        state: link
+#        force: yes
+#      notify: Restart Nginx  
+#
+
+    - name: copy index.html
+      template: 
+        src: index.html.j2 
+        dest: /var/www-data/example.com 
+        mode: 0644
+
+    - name: 'Allow nginx to read files in /var/www-data'
+      sefcontext:
+        target: '/var/www-data(/.*)?'
+        setype: httpd_sys_rw_content_t
+        state: present
+
+    - name: Apply new SELinux file context to filesystem
+      ansible.builtin.command: restorecon -irv /var/www-data
+
+    - name: enable 80 port
+      firewalld:
+        zone: public
+        port: 80/tcp
+        permanent: true
+        state: enabled
+
+    - name: enable 443 port
+      firewalld:
+        zone: public
+        port: 443/tcp
+        permanent: true
+        state: enabled

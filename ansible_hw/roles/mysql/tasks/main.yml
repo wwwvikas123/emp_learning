@@ -1,0 +1,43 @@
+---
+# tasks file for mysql
+
+    - name: Install MySQL repository
+      yum:
+        name: "http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm"
+        state: present
+
+    - name: Enable MySQL 5.7 repository
+      shell: yum-config-manager --enable mysql57-community
+
+    - name: Install MySQL packages
+      yum:
+       name: mysql-server
+       state: present
+
+    - name: InstallMySQL-python
+      yum: name=MySQL-python state=latest update_cache=yes
+      tags: MySQL-python
+
+    - name: Enable the MySQL service
+      service:
+        name: mysqld
+        state: started
+        enabled: true
+
+    - name: update mysql root password for all root accounts
+      shell: mysql -u root -h localhost --password= -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '"{{ mysql_root_password }}"';FLUSH PRIVILEGES;"
+
+    - name: Create database user with name 'bob' and password '12345' with all database privileges
+      mysql_user:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: testuser
+        password: "{{ mysql_test_user_password }}"
+        priv: '*.*:ALL'
+        state: present
+
+    - name: create a new database  
+      mysql_db: name=testdb 
+      state: present 
+      login_user: testuser 
+      login_password: "{{ mysql_test_user_password }}"

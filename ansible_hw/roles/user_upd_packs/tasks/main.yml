@@ -1,0 +1,24 @@
+---
+# tasks file for user_upd_packs
+
+    - name: Creating Group for testuser
+      group:
+         name: "{{ user }}"
+         state: present
+
+    - name: Add the user 'doc' with a specific uid and a primary group of 'admin'
+      user:
+        name: "{{ user }}"
+        password: "{{ password }}"
+        shell: /bin/bash
+        uid: 1040
+        groups: "{{ user }}"
+
+    - name: Install yum-utils and epel
+      yum: name={{ item }} state=latest update_cache=yes
+      loop: [ 'yum-utils', 'epel-release']      
+
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest         

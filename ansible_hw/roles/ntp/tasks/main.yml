@@ -1,0 +1,46 @@
+---
+# tasks file for ntp
+    - name: Open ports with firewalld
+      firewalld: 
+        service: ntp
+        permanent: yes
+        state: enabled
+
+    - name: reload service firewalld
+      systemd:
+        name: firewalld
+        state: reloaded
+
+    - name: Make sure Chrony is started up
+      service: name=chronyd state=started enabled=yes
+      tags: chrony
+
+    - name: set timezone to Europe/Moscow
+      timezone:
+        name: Europe/Moscow
+
+    - name: Install NTP
+      yum: name=ntp state=installed
+      tags: ntp
+
+    - name: Copy over the NTP configuration
+      copy: src=ntp.conf dest=/etc/ntp.conf
+      notify:
+      - restart ntpd
+      tags: ntp
+
+    - name: Make sure NTP is stopped
+      service: name=ntpd state=stopped enabled=yes
+      tags: ntp
+
+    - name: Sync time initialy
+      shell: ntpdate 0.centos.pool.ntp.org
+      tags: ntp
+
+    - name: Make sure NTP is started up
+      service: name=ntpd state=restarted enabled=yes
+      tags: ntp
+
+    - name: Sync hwclock
+      shell: hwclock -w
+      tags: ntp

@@ -53,6 +53,7 @@
 
 ## Задача 2
 
+```
 git remote add origin git@github.com:wwwvikas123/git-lesson.git
 git branch -M main
 git push -u origin main
@@ -61,3 +62,5 @@ git checkout feat1-add-readme
 echo "Hello Github" > README.md 
 git add README.md && git commit -m "changed README"
 git push
+```
+

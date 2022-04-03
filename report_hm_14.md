@@ -1,3 +1,5 @@
+## Задача 1
+
 ### 1.
 
 ```
@@ -48,3 +50,14 @@
  git log
  git revert a71c76b49ccafbb489b4a96f391939889ddb945c
 ```
+
+## Задача 2
+
+git remote add origin git@github.com:wwwvikas123/git-lesson.git
+git branch -M main
+git push -u origin main
+git push origin --all
+git checkout feat1-add-readme 
+echo "Hello Github" > README.md 
+git add README.md && git commit -m "changed README"
+git push

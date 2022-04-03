@@ -63,4 +63,32 @@ echo "Hello Github" > README.md
 git add README.md && git commit -m "changed README"
 git push
 ```
+репа  - https://github.com/wwwvikas123/git-lesson
+
+## Задача 3
+
+всё в архиве (тут)[https://github.com/wwwvikas123/epm_learning/blob/chapter_14/gitlab.zip]
+
+## Задача 4
+
+test.yml
+
+```
+name: Test
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print hello
+        shell: bash
+        run: |
+          echo "Hello Pull-Request"
+```
 
